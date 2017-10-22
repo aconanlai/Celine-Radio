@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Item from '../item/item.js';
 
-
 const apiPath = 'http://celinebureau.info/radio/wp-json/wp/v2/posts'
 
 // individual show path = http://celinebureau.info/radio/wp-json/wp/v2/posts?slug=two-hungry-children-episode-1
