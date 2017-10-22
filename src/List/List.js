@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-// import './List.css';
+import Item from '../item/item.js';
+
 
 const apiPath = 'http://celinebureau.info/radio/wp-json/wp/v2/posts'
 
@@ -21,23 +22,16 @@ class List extends Component {
       items: json,
     })
   }
-  
+
   render() {
     return (
       <div className="List">
-        this is the list
-        {this.state.items.map((item) => {
-          return (
-            <div>
-              <h1>{item.title.rendered}</h1>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: item.content.rendered
-                }}
-              />
-            </div>
-          )
-        })}
+        <ul>
+          {this.state.items.map((item) => {
+            return (<Item key={item.slug} item={item} />)
+          })}
+        </ul>
+
       </div>
     );
   }
