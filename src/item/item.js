@@ -1,12 +1,16 @@
-import React, {Component} from 'react';
+import React from 'react';
 // import 'item.css';
 
-const Item = ({item}) => {
-  console.log(item)
+const Item = ({ item }) => {
+  function createMarkup() {
+    return { __html: item.content.rendered };
+  }
   return (
-    <li>{item.content.rendered}</li>
+    <li>
+       <div dangerouslySetInnerHTML={createMarkup()} />
+    </li>
   )
 };
 
-export default Item; 
+export default Item;
 
