@@ -2,29 +2,27 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Info from './Info'
 
-import notFound from './notFound.js'
-import { ReactRouter, BrowserRouter, Route, Switch, Router } from 'react-router-dom'
+import {BrowserRouter, Route, Switch } from 'react-router-dom'
 import registerServiceWorker from './registerServiceWorker';
 
 
+const Root = () => {
 
+  const Info = () => (
+    <div>BLAAAAH</div>
+  );
 
-const ROOT = () => {
-  //
- 
   return (
     <BrowserRouter >
       <Switch>
-        
         <Route exact path="/" component={App} />
         <Route path="/info" component={Info} />
-        <Route path="*" component={notFound} />
+        <Route path="*" component={Info} />
       </Switch>
     </BrowserRouter>
-  )
+  );
 
-}
-ReactDOM.render(<ROOT />, document.getElementById('root'));
+};
+ReactDOM.render(<Root />, document.getElementById('root'));
 registerServiceWorker();
