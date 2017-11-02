@@ -1,11 +1,8 @@
-import React  from 'react';
+import React from 'react';
 
-const Podcast = ({items}) => {
-  console.log(items)
-  return (
-    <li>{items.content.rendered}</li>
-  )
+const Podcast = ({ items }) => {
+  return <li>{items.content.rendered}</li>
 };
 
-export default Podcast; 
+export default Podcast;
 

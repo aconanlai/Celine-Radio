@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import PodcastList from './components/PodcastList/PodcastList.js';
-import Footer from './components/Footer/Footer.js'
+import PodcastList from './components/PodcastList/PodcastList';
+import Footer from './components/Footer/Footer';
 
-import './App.css';
-const apiPath = 'http://celinebureau.info/radio/wp-json/wp/v2/posts'
+const apiPath = 'http://celinebureau.info/radio/wp-json/wp/v2/posts';
 
 
 class App extends Component {
@@ -12,23 +11,23 @@ class App extends Component {
     this.state = {
       items: [],
       loading: true,
-    }
+    };
   }
 
   async componentDidMount() {
-    const response = await fetch(apiPath)
+    const response = await fetch(apiPath);
     const json = await response.json();
-    const items = json 
+    const items = json;
     this.setState({
       items,
-    })
+    });
   }
 
   render() {
     return (
       <div className="App">
         <PodcastList podcasts={this.state.items} isLoading={this.state.loading} />  
-        < Footer /> 
+        <Footer /> 
       </div>
     );
   }
