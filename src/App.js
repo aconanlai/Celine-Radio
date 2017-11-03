@@ -26,8 +26,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <PodcastList podcasts={this.state.items} isLoading={this.state.loading} />  
-        <Footer /> 
+        <PodcastList podcasts={this.state.items} isLoading={this.state.loading} />
+        <Footer />
       </div>
     );
   }

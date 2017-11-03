@@ -7,12 +7,12 @@ import App from './App';
 
 import registerServiceWorker from './registerServiceWorker';
 
+const Info = () => (
+  <div>BLAAAAH</div>
+);
+
 
 const Root = () => {
-  const Info = () => (
-    <div>BLAAAAH</div>
-  );
-
   return (
     <BrowserRouter >
       <Switch>
