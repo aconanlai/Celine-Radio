@@ -16,14 +16,13 @@ module.exports = {
     "no-use-before-define": ["warn"],
     "indent": ["warn"],
     "no-unused-vars": ["warn"],
-    "arrow-body-style": [
-      "warn", "always"
-    ],
     "react/jsx-filename-extension": [
       1, {
         "extensions": [".js", ".jsx"]
       }
     ],
+    "jsx-a11y/anchor-is-valid": 0,
+    "react/prop-types": 0,
     "import/no-extraneous-dependencies": [
       "error", {
         "devDependencies": true,

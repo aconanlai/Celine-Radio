@@ -1,36 +1,39 @@
-import React, { Component } from 'react';
-import PodcastList from './components/PodcastList/PodcastList';
+import React from 'react';
+import { Route, Switch, Link } from 'react-router-dom';
+import EpisodeListContainer from './components/EpisodeList/EpisodeListContainer';
+import EpisodeContainer from './components/Episode/EpisodeContainer';
 import Footer from './components/Footer/Footer';
 
-const apiPath = 'http://celinebureau.info/radio/wp-json/wp/v2/posts';
+const NavBar = () => (<div>Navbar</div>);
 
+const Info = () => (<div>Info</div>);
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: [],
-      loading: true,
-    };
-  }
+const HomePage = () => (
+  <div>
+    <h1>Homepage</h1>
+    <Link to="/episodes">Episodes</Link>
+  </div>
+);
 
-  async componentDidMount() {
-    const response = await fetch(apiPath);
-    const json = await response.json();
-    const items = json;
-    this.setState({
-      items,
-    });
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <PodcastList podcasts={this.state.items} isLoading={this.state.loading} />
-        <Footer />
-      </div>
-    );
-  }
-}
+const App = () => {
+  return (
+    <div className="App">
+      <NavBar />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/episodes" component={EpisodeListContainer} />
+        <Route
+          exact
+          path="/episodes/:slug"
+          render={({ match, }) => (
+            <EpisodeContainer slug={match.params.slug} />)}
+        />
+        <Route path="/info" component={Info} />
+        <Route path="*" component={Info} />
+      </Switch>
+      <Footer />
+    </div>
+  );
+};
 
 export default App;
