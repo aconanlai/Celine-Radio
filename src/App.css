@@ -1,13 +1,10 @@
-
-
-html {
-  position: relative;
-  min-height: 100%;
-  background-color: rgb(215, 55, 180);
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-body {
-  margin: 0 0 100px; /* bottom = footer height */
-  padding: 25px;
-  
+.panel-container {
+  display: flex;
+  flex-grow: 1;
 }

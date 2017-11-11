@@ -1,13 +1,12 @@
 import React from 'react';
-// import { Link, NavLink } from 'react-router-dom';
+import './Footer.css';
 
-
-const Footer = ({ props }) => {
+const Footer = () => {
   return (
-    <div>
-      <h1> Music Player Celine</h1>
+    <div className="footer">
+      Music Player Celine
     </div>
-
   );
 };
+
 export default Footer;

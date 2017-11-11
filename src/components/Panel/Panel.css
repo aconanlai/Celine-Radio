@@ -1,0 +1,7 @@
+.panel {
+  flex: 1;
+  border-right: 0.1px rgb(218, 255, 243) solid;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: rgb(255, 123, 246);
+}
