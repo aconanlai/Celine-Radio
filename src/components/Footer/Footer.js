@@ -1,12 +1,11 @@
 import React from 'react';
 import './Footer.css';
-import MusicPlayer from '../MusicPlayer/MusicPlayer.js'
-// import MusicPlayer from '../MusicPlayer/MusicPlayer.js'
+import MusicPlayer from '../MusicPlayer/MusicPlayer';
 
 const Footer = () => {
   return (
     <div className="footer">
-      <MusicPlayer/>
+      <MusicPlayer />
     </div>
   );
 };
