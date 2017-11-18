@@ -1,14 +1,13 @@
 import React from 'react';
 import './Footer.css';
+import MusicPlayer from '../MusicPlayer/MusicPlayer.js'
+// import MusicPlayer from '../MusicPlayer/MusicPlayer.js'
 
 const Footer = () => {
   return (
     <div className="footer">
-     <img src="https://image.flaticon.com/icons/svg/0/375.svg" alt="" width="20" height="20"/>
-      Music Player Celine
-     
+      <MusicPlayer/>
     </div>
   );
 };
-
 export default Footer;

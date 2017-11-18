@@ -1,0 +1,7 @@
+.MusicPlayer {
+  display: flex;
+  align-content: flex-end;
+  align-items: center;
+  padding: 20px;
+  padding-right: 2cm;
+}
