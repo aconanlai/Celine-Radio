@@ -17,14 +17,16 @@ const HomePage = () => (
 );
 //
 
+const notOnPageYet = () => (
+  <div>no episode selected yet</div>
+);
+
 const App = () => {
   return (
     <div className="app">
       <div className="panel-container">
         <Panel>
-          <div>
-            first Panel
-          </div>
+          <EpisodeListContainer />
         </Panel>
         <Panel>
           <div>
@@ -37,9 +39,10 @@ const App = () => {
           </div>
         </Panel>
         <Panel>
-          <div>
-            fourth Panel
-          </div>
+          <Switch>
+            <Route exact path="/" component={notOnPageYet} />
+            <Route path="*" component={EpisodeContainer} />
+          </Switch>
         </Panel>
       </div>
       <Footer />
