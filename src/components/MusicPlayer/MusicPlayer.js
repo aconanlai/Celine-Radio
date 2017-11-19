@@ -25,23 +25,12 @@ class MusicPlayer extends Component {
 
 
   render() {
-    if (!this.state.isPlaying) {
-      return (
-        <div className="player">
-          <div className="controls">
-            <a><i className="fa fa-chevron-left" aria-hidden="true"></i></a>
-            <a onClick={this.playButton}><i className="fa fa-play" aria-hidden="true"></i></a>
-            <a><i className="fa fa-chevron-right" aria-hidden="true"></i></a>
-          </div>
-        </div>
-      );
-    }
     return (
       <div className="player">
         <div className="controls">
-          <a><i className="fa fa-chevron-left" aria-hidden="true"></i></a>
-          <a onClick={this.pauseButton}><i className="fa fa-pause" aria-hidden="true"></i></a>
-          <a><i className="fa fa-chevron-right" aria-hidden="true"></i></a>
+          {(this.state.isPlaying) ?
+            <i onClick={this.pauseButton} className="fa fa-pause controls" aria-hidden="true" /> :
+            <i onClick={this.playButton} className="fa fa-play controls" aria-hidden="true" />}
         </div>
       </div>
     );
