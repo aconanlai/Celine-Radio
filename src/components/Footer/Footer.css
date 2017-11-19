@@ -1,9 +1,6 @@
 .footer {
   display:flex;
   border: 2px solid #959596;
-  height: 30px; 
   width: 100%;
   background-color: #f6989d;
-  align-items: center;
-  padding-left: 0.2em; 
 }

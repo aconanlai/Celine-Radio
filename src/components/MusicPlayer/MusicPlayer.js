@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import 'font-awesome/css/font-awesome.min.css';
 import './MusicPlayer.css';
 
 class MusicPlayer extends Component {
@@ -20,21 +22,28 @@ class MusicPlayer extends Component {
       });
     };
   }
+
+
   render() {
     if (!this.state.isPlaying) {
       return (
-        <div>
-          <img src="https://image.flaticon.com/icons/svg/0/375.svg" width="20" height="20" onClick={this.playButton} />
+        <div className="player">
+          <div className="controls">
+            <a><i className="fa fa-chevron-left" aria-hidden="true"></i></a>
+            <a onClick={this.playButton}><i className="fa fa-play" aria-hidden="true"></i></a>
+            <a><i className="fa fa-chevron-right" aria-hidden="true"></i></a>
+          </div>
         </div>
-
-
       );
     }
     return (
-      <div>
-        <img src="https://cdn3.iconfinder.com/data/icons/line/36/pause-512.png" width="20" height="20" onClick={this.pauseButton} />
+      <div className="player">
+        <div className="controls">
+          <a><i className="fa fa-chevron-left" aria-hidden="true"></i></a>
+          <a onClick={this.pauseButton}><i className="fa fa-pause" aria-hidden="true"></i></a>
+          <a><i className="fa fa-chevron-right" aria-hidden="true"></i></a>
+        </div>
       </div>
-
     );
   }
 }

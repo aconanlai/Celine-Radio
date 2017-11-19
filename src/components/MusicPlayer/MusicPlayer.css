@@ -1,6 +1,24 @@
-.MusicPlayer {
+
+.player {
   display: flex;
-  align-content: flex-end;
-  align-items: center;
-  padding: 20px;
+  width:300px;
+  /* background-color: green */
+}
+
+
+.controls > a {
+  float: left;
+  margin:4px;
+  cursor: pointer;
+  margin-block-start: 5px;
+  color: #959596;
+
+  
+}
+.controls > a:hover {
+  background-color: #f60000;
+  color: #000000;
+}
+.audio{
+  background-color: red
 }
