@@ -5,7 +5,7 @@ import MusicPlayer from '../MusicPlayer/MusicPlayer';
 const Footer = () => {
   return (
     <div className="footer">
-      <MusicPlayer />
+      <MusicPlayer audio={`https://s3.amazonaws.com/celinebureauradio/Tetris%20Rap%20by%20DaCaV5.mp3`} />
     </div>
   );
 };

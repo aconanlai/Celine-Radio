@@ -10,28 +10,25 @@ class MusicPlayer extends Component {
       isPlaying: false,
     };
 
-    this.playButton = (e) => {
-      this.setState({
-        isPlaying: true,
-      });
-    };
-
-    this.pauseButton = () => {
-      this.setState({
-        isPlaying: false,
-      });
+    this.playAndPauseButton = (e) => {
+      if (this.state.isPlaying) {
+        this.setState({ isPlaying: false, });
+        this.audio.pause();
+      } else {
+        this.setState({ isPlaying: true, });
+        this.audio.play();
+      }
     };
   }
-
-
   render() {
     return (
       <div className="player">
         <div className="controls">
-          {(this.state.isPlaying) ?
-            <i onClick={this.pauseButton} className="fa fa-pause controls" aria-hidden="true" /> :
-            <i onClick={this.playButton} className="fa fa-play controls" aria-hidden="true" />}
+          <i onClick={this.playAndPauseButton} className={!this.state.isPlaying ? "fa fa-play controls" : "fa fa-pause controls"} />
         </div>
+        <audio src={this.props.audio}
+          ref={(audio) => { this.audio = audio }}
+        />
       </div>
     );
   }
