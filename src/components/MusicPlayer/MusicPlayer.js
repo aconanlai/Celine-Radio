@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Audio from '../Audio/Audio'
-
 import 'font-awesome/css/font-awesome.min.css';
+import AudioSource from '../Audio/AudioSource';
+
 import './MusicPlayer.css';
 
 class MusicPlayer extends Component {
@@ -10,15 +10,13 @@ class MusicPlayer extends Component {
     this.state = {
       isPlaying: false,
     };
-    console.log('test push')
+
 
     this.playAndPauseButton = (e) => {
       if (this.state.isPlaying) {
         this.setState({ isPlaying: false, });
-        // this.audio.pause();
       } else {
         this.setState({ isPlaying: true, });
-        // this.audio.play();
       }
     };
   }
@@ -26,14 +24,16 @@ class MusicPlayer extends Component {
     return (
       <div className="player">
         <div className="controls">
-          <i onClick={this.playAndPauseButton} className={!this.state.isPlaying ? "fa fa-play controls" : "fa fa-pause controls"} />
+          <i onClick={this.playAndPauseButton} className={!this.state.isPlaying ? 'fa fa-play controls' : 'fa fa-pause controls'} />
         </div>
-        <Audio
-          uri={this.props.audio}
-          isPlaying={this.state.isPlaying}
-
-          
+        <div className="audio-source">
+          <AudioSource
+            AudioPath={this.props.AudioPath}
+            isPlaying={this.state.isPlaying}
           />
+
+        </div>
+
       </div>
     );
   }
