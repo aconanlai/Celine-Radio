@@ -10,6 +10,7 @@ class MusicPlayer extends Component {
     this.state = {
       isPlaying: false,
     };
+    console.log('test push')
 
     this.playAndPauseButton = (e) => {
       if (this.state.isPlaying) {
