@@ -1,0 +1,14 @@
+
+
+.mute {
+
+    margin-left:20px;
+    cursor: pointer;
+    margin-block-start: 9px;
+    color: #959596;
+  
+}
+ .mute:hover {
+  background-color: #f60000;
+  color: #000000;
+}

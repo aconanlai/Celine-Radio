@@ -7,7 +7,10 @@
 
 
 .controls {
-  float: left;
+  display: flex;
+  width: 100px;
+  flex-direction: row;
+  /* float: left; */
   margin:4px;
   cursor: pointer;
   margin-block-start: 5px;

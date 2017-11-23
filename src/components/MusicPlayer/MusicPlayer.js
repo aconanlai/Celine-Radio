@@ -10,9 +10,7 @@ class MusicPlayer extends Component {
     this.state = {
       isPlaying: false,
     };
-
-
-    this.playAndPauseButton = (e) => {
+    this.toggle = (e) => {
       if (this.state.isPlaying) {
         this.setState({ isPlaying: false, });
       } else {
@@ -24,11 +22,11 @@ class MusicPlayer extends Component {
     return (
       <div className="player">
         <div className="controls">
-          <i onClick={this.playAndPauseButton} className={!this.state.isPlaying ? 'fa fa-play controls' : 'fa fa-pause controls'} />
+          <i onClick={this.toggle} className={!this.state.isPlaying ? 'fa fa-play controls' : 'fa fa-pause controls'} />
         </div>
         <div className="audio-source">
           <AudioSource
-            AudioPath={this.props.AudioPath}
+            audioPath={this.props.audioPath}
             isPlaying={this.state.isPlaying}
           />
 
@@ -38,5 +36,6 @@ class MusicPlayer extends Component {
     );
   }
 }
+//
 
 export default MusicPlayer;
