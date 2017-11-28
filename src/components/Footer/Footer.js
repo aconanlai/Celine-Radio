@@ -1,11 +1,13 @@
 import React from 'react';
 import './Footer.css';
-import MusicPlayer from '../MusicPlayer/MusicPlayer';
+import PlayerDashBoardContainer from '../MusicPlayer/PlayerDashBoard/PlayerDashBoardContainer';
+import '../Footer/Footer';
+
 
 const Footer = () => {
   return (
     <div className="footer">
-      <MusicPlayer audioPath="https://s3.amazonaws.com/celinebureauradio/Tetris%20Rap%20by%20DaCaV5.mp3" />
+      <PlayerDashBoardContainer />
     </div>
   );
 };
