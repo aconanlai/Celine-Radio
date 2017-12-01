@@ -23,8 +23,7 @@ class Audio extends Component {
       <audio
         src={this.props.podcastFile}
         ref={(audio) => { this.audio = audio; }}
-      >
-      </audio>
+      />
     );
   }
 }
