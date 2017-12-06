@@ -1,10 +1,8 @@
 import React from 'react';
 import './PlayerDashBoard.css';
-
 import PlayerToggleContainer from '../PlayerControls/PlayerToggle/PlayerToggleContainer';
 // import PlayerVolumeContainer from '../PlayerControls/PlayerVolume/PlayerVolumeContainer';
 // import ProgressBarContainer from '../PlayerControls/ProgressBar/ProgressBarContainer';
-
 
 const PlayerDashBoard = (props) => {
   return (
@@ -18,8 +16,6 @@ const PlayerDashBoard = (props) => {
         />
         {/* {ProgressBarContainer } */}
         {/* {PlayerVolumeContainer} */}
-        
-    
       </div>
     </div>
   );
