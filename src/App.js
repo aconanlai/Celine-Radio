@@ -9,7 +9,7 @@ import './App.css';
 
 const App = () => {
   return (
-    <Provider store={this.props.store}>
+    
       <div className="app">
         <div className="panel-container">
           <Panel>
@@ -35,7 +35,7 @@ const App = () => {
         </div>
         <Footer />
       </div>
-    </Provider>
+  
   );
 };
 

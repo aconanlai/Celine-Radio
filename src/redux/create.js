@@ -1,14 +1,24 @@
+import { createStore as _createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import createMiddleware from './middleware/clientMiddleware';
 
-import { createStore, combineReducers } from 'redux'
+export default function createStore(data, history, client) {
+  // Sync dispatched route actions to the history
 
+  const middleware = [createMiddleware(client), thunk];
 
-import * as reducers from './reducers'
+  const composeEnhancers =
+    typeof window === 'object' &&
+      window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+      window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+        // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
+      }) : compose;
 
-export default function(data) {
-  var reducer = combineReducers(reducers)
-  var store = finalCreateStore(reducer, data)
+  const finalCreateStore = composeEnhancers(applyMiddleware(...middleware))(_createStore);
 
-  return store
+  const reducer = require('./reducer').default;
+
+  const store = finalCreateStore(reducer, data);
+
+  return store;
 }
-
-// Go to ./application.jsx to learn of the first Redux binding for React: the Provider component.

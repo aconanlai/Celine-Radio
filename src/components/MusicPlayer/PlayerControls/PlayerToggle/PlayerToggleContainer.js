@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 import PlayerToggle from './PlayerToggle';
+import { connect } from 'react-redux';
+import {
+  playPodcast
+} from '../../../../redux/modules/audio';
+
+
 
 
 class PlayerToggleContainer extends Component {
@@ -17,6 +23,7 @@ class PlayerToggleContainer extends Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <PlayerToggle
         isPlaying={this.props.isPlaying}
@@ -26,5 +33,11 @@ class PlayerToggleContainer extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    ReduxState: state
+  };
+};
 
-export default PlayerToggleContainer;
+export default connect(mapStateToProps, playPodcast)(PlayerToggleContainer);
+
