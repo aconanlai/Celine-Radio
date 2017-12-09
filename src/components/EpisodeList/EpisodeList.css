@@ -1,0 +1,16 @@
+.episode-list-link {
+  text-decoration: none;
+}
+
+.episode-list-link:hover {
+  color: black !important;
+  text-decoration: underline;
+}
+
+.episode-list-link:visited {
+  color: blue;
+}
+
+.episode-list-item {
+  margin-bottom: 1.5em;
+}
