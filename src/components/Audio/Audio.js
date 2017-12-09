@@ -2,22 +2,27 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Audio extends Component {
-  constructor(props) {
-    super(props);
-  };
-  componentWillReceiveProps(nextProps) {
-    if (this.props.isPlaying !== nextProps.isPlaying) {
-      this.props.isPlaying ? this.audio.pause() : this.audio.play();
+  componentDidUpdate(prevProps) {
+    if (this.props.isPlaying !== prevProps.isPlaying) {
+      this.props.isPlaying ? this.audio.play() : this.audio.pause();
     }
   }
   render() {
     return (
+      // TODO: make caption the title of the show
       <audio
-        src={this.props.podcastFile}
+        src={this.props.filePath}
         ref={(audio) => { this.audio = audio; }}
       />
     );
   }
 }
 
-export default Audio;
+const mapStateToProps = (state) => {
+  return {
+    isPlaying: state._audio.isPlaying,
+    filePath: state._audio.filePath,
+  };
+};
+
+export default connect(mapStateToProps)(Audio);

@@ -2,42 +2,38 @@ import React, { Component } from 'react';
 import PlayerToggle from './PlayerToggle';
 import { connect } from 'react-redux';
 import {
-  playPodcast
+  playAudio,
+  pauseAudio
 } from '../../../../redux/modules/audio';
 
-
-
-
 class PlayerToggleContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.toggle = this.toggle.bind(this);
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.toggle = this.toggle.bind(this);
+  // }
 
   toggle = () => {
     if (this.props.isPlaying) {
-      this.props.updateIsPlayingFalse();
+      this.props.pauseAudio();
     } else {
-      this.props.updateIsPlayingTrue();
+      this.props.playAudio();
     }
   };
 
   render() {
-    console.log(this.props);
     return (
       <PlayerToggle
         isPlaying={this.props.isPlaying}
         toggle={this.toggle}
       />
-
     );
   }
 }
 const mapStateToProps = (state) => {
   return {
-    ReduxState: state
+    isPlaying: state._audio.isPlaying,
   };
 };
 
-export default connect(mapStateToProps, playPodcast)(PlayerToggleContainer);
+export default connect(mapStateToProps, { playAudio, pauseAudio, })(PlayerToggleContainer);
 

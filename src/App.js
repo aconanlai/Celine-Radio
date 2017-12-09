@@ -9,33 +9,27 @@ import './App.css';
 
 const App = () => {
   return (
-    
-      <div className="app">
-        <div className="panel-container">
-          <Panel>
-            <div>
-              first Panel
+    <div className="app">
+      <div className="panel-container">
+        <Panel>
+          <EpisodeListContainer />
+        </Panel>
+        <Panel>
+          <div>
+            second Panel
           </div>
-          </Panel>
-          <Panel>
-            <div>
-              second Panel
+        </Panel>
+        <Panel>
+          <div>
+            third Panel
           </div>
-          </Panel>
-          <Panel>
-            <div>
-              third Panel
-          </div>
-          </Panel>
-          <Panel>
-            <div>
-              fourth Panel
-          </div>
-          </Panel>
-        </div>
-        <Footer />
+        </Panel>
+        <Panel>
+          <EpisodeContainer />
+        </Panel>
       </div>
-  
+      <Footer />
+    </div>
   );
 };
 

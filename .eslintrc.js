@@ -13,6 +13,8 @@ module.exports = {
         "exceptions": ["/"]
       }
     ],
+    "arrow-body-style": 0,
+    "no-unused-expressions": 0,
     "no-use-before-define": ["warn"],
     "indent": ["warn"],
     "no-unused-vars": ["warn"],
