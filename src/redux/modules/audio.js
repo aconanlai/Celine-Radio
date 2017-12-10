@@ -1,6 +1,6 @@
 export default function reducer(state = {
   isPlaying: false,
-  filePath: 'https://s3.amazonaws.com/celinebureauradio/Tetris%20Rap%20by%20DaCaV5.mp3',
+  filePath: '',
 }, action = {}) {
   switch (action.type) {
     case 'PLAY_AUDIO':
@@ -12,6 +12,12 @@ export default function reducer(state = {
       return {
         ...state,
         isPlaying: false,
+      };
+    case 'LOAD_NEW_FILE':
+      return {
+        ...state,
+        isPlaying: true,
+        filePath: action.path,
       };
     default:
       return state;
@@ -27,5 +33,12 @@ export const playAudio = () => {
 export const pauseAudio = () => {
   return {
     type: 'PAUSE_AUDIO',
+  };
+};
+
+export const loadNewFile = (path) => {
+  return {
+    type: 'LOAD_NEW_FILE',
+    path,
   };
 };

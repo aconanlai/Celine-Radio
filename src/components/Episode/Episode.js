@@ -1,4 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import './Episode.css';
+
+import { loadNewFile } from '../../redux/modules/audio';
 
 const Loading = () => (
   <div>Loading...</div>
@@ -15,7 +19,7 @@ const checkIfImageExists = (embedded) => {
 const EpisodeDisplay = (props) => {
   const image = checkIfImageExists(props._embedded);
   return (
-    <div>
+    <div className="episode-page">
       <h1
         className="episode-title"
       >
@@ -26,6 +30,14 @@ const EpisodeDisplay = (props) => {
         src={image}
         alt={props.title.rendered}
       />}
+      <div>
+        <span
+          className="play-episode-link"
+          onClick={() => props.loadNewFile(props.acf.audio_link)}
+        >
+          PLAY
+        </span>
+      </div>
       <div
         className="episode-description"
         dangerouslySetInnerHTML={{
@@ -45,4 +57,4 @@ const Episode = (props) => {
   );
 };
 
-export default Episode;
+export default connect(null, { loadNewFile, })(Episode);

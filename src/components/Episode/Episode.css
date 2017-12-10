@@ -1,0 +1,30 @@
+.episode-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: black;
+  font-size: 0.9em;
+}
+
+.episode-page > * {
+  padding-bottom: 25px;
+}
+
+.episode-image {
+  align-self: center;
+}
+
+.play-episode-link {
+  text-decoration: underline;
+  color: blue;
+}
+
+.play-episode-link:hover {
+  cursor: pointer;
+  font-style: italic;
+}
+
+.episode-description {
+  text-align: left;
+}
