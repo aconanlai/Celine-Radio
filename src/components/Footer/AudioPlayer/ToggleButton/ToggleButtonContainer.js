@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
-import PlayerToggle from './PlayerToggle';
 import { connect } from 'react-redux';
+import ToggleButton from './ToggleButton';
 import {
   playAudio,
   pauseAudio
 } from '../../../../redux/modules/audio';
 
-class PlayerToggleContainer extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.toggle = this.toggle.bind(this);
-  // }
-
+class ToggleButtonContainer extends Component {
   toggle = () => {
     if (this.props.isPlaying) {
       this.props.pauseAudio();
@@ -22,7 +17,7 @@ class PlayerToggleContainer extends Component {
 
   render() {
     return (
-      <PlayerToggle
+      <ToggleButton
         isPlaying={this.props.isPlaying}
         toggle={this.toggle}
       />
@@ -35,5 +30,5 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { playAudio, pauseAudio, })(PlayerToggleContainer);
+export default connect(mapStateToProps, { playAudio, pauseAudio, })(ToggleButtonContainer);
 
