@@ -1,11 +1,11 @@
 import React from 'react';
 import './Footer.css';
-import PlayerDashBoardContainer from '../MusicPlayer/PlayerDashBoard/PlayerDashBoardContainer';
+import AudioPlayer from './AudioPlayer/AudioPlayer';
 
 const Footer = () => {
   return (
     <div className="footer">
-      <PlayerDashBoardContainer />
+      <AudioPlayer />
     </div>
   );
 };
