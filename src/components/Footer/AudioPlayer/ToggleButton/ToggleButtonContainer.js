@@ -16,17 +16,20 @@ class ToggleButtonContainer extends Component {
   };
 
   render() {
-    return (
-      <ToggleButton
+    if (this.props.filePath) {
+      return (<ToggleButton
         isPlaying={this.props.isPlaying}
         toggle={this.toggle}
       />
-    );
+      );
+    }
+    return null;
   }
 }
 const mapStateToProps = (state) => {
   return {
     isPlaying: state._audio.isPlaying,
+    filePath: state._audio.filePath,
   };
 };
 

@@ -1,0 +1,7 @@
+.language-toggle {
+  align-content: flex-end;
+  float:right;
+  margin:4px;
+  margin-block-start: 5px;
+  color: #959596; 
+}
