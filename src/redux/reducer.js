@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
 
-// import language from './modules/language';
 import audio from './modules/audio';
+import keywords from './modules/keywords';
 
 export default combineReducers({
   _audio: audio,
+  _keywords: keywords,
 });
