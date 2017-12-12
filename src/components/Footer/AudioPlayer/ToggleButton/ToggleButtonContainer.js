@@ -20,7 +20,6 @@ class ToggleButtonContainer extends Component {
       <ToggleButton
         isPlaying={this.props.isPlaying}
         toggle={this.toggle}
-        filePath={this.props.filePath}
       />
     );
   }
@@ -28,7 +27,6 @@ class ToggleButtonContainer extends Component {
 const mapStateToProps = (state) => {
   return {
     isPlaying: state._audio.isPlaying,
-    filePath: state._audio.filePath,
   };
 };
 

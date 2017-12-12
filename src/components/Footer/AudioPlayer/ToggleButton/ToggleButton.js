@@ -5,9 +5,7 @@ import './ToggleButton.css';
 const ToggleButton = (props) => {
   return (
     <div>
-      {props.filePath &&
-        <i onClick={props.toggle} className={!props.isPlaying ? 'fa fa-play controls' : 'fa fa-pause controls'} />
-      }
+      <i onClick={props.toggle} className={!props.isPlaying ? 'fa fa-play controls' : 'fa fa-pause controls'} />
     </div>
 
   );

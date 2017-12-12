@@ -1,21 +1,15 @@
-
-
-/* This make more sense than trying to give NowPlaying It's folder. */
 .audio-player {
   display: flex;
-  width: 50%;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 25px;
+  margin: 4px;
+  color: black;
+  width: 70%;
   background-color: #f6989d;
-
 }
 
-
 .controls {
-  display: flex;
-  width: 100px;
-  flex-direction: row;
-  margin:4px;
-  cursor: pointer;
-  margin-block-start: 5px;
-  color: blue;  
-  background-color: #f6989d;
+  display: flex-start;
+  width: 80px;
 }

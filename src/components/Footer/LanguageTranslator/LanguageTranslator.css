@@ -1,10 +1,10 @@
 .language-toggle {
-  justify-content: flex-end;
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
+  height: 25px;
+  padding-top: 5px;
   margin: 4px;
-  margin-block-start: 5px;
   color: black;
-  width: 100%;
-  background-color: #f6989d;
+  width: 70%;
 }
