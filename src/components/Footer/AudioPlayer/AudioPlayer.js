@@ -1,33 +1,22 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 import ToggleButtonContainer from './ToggleButton/ToggleButtonContainer';
 import NowPlayingContainer from '../AudioPlayer/NowPlaying/NowPlayingContainer';
 import Audio from './Audio/Audio';
-import './AudioPlayer.css';
+import './AudioPlayer.css'
 
-
-
-class AudioPlayer extends Component {
-
-  render() {
-    return (
-      <div className="audio-player">
-        {this.props.filePath &&
-          <div className="audio-player" >
-            <ToggleButtonContainer />
-            <NowPlayingContainer />
-            <Audio />
-          </div>
-        }
-      </div>
-    )
-  }
-}
-
-const mapStateToProps = (state) => {
-  return {
-    filePath: state._audio.filePath,
-  };
+const AudioPlayer = (props) => {
+  console.log('YA: ' + props.filePath)
+  return (
+    <div className="audio-player">
+      {props.filePath &&
+        <div className="audio-player" >
+          <ToggleButtonContainer />
+          <NowPlayingContainer />
+          <Audio />
+        </div>
+      }
+    </div>
+  );
 };
 
-export default connect(mapStateToProps)(AudioPlayer);
+export default AudioPlayer;

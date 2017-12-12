@@ -29,13 +29,11 @@ export const playAudio = () => {
     type: 'PLAY_AUDIO',
   };
 };
-
 export const pauseAudio = () => {
   return {
     type: 'PAUSE_AUDIO',
   };
 };
-
 export const loadNewFile = (path) => {
   return {
     type: 'LOAD_NEW_FILE',

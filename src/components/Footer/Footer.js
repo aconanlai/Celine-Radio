@@ -1,12 +1,12 @@
 import React from 'react';
 import './Footer.css';
-import AudioPlayer from './AudioPlayer/AudioPlayer';
+import AudioPlayerContainer from './AudioPlayer/AudioPlayerContainer';
 import LanguageTranslatorContainer from './LanguageTranslator/LanguageTranslatorContainer'
 
 const Footer = () => {
   return (
     <div className="footer">
-      <AudioPlayer />
+      <AudioPlayerContainer />
       <LanguageTranslatorContainer />
     </div>
   );
