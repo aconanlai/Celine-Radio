@@ -1,6 +1,7 @@
-.now-playing{
+.now-playing{   
   width: 100%;
-  margin:4px;
+  margin: 4px;
   margin-block-start: 5px;
-  color: #959596; 
+  color: black; 
+  background-color: #f6989d;
 }

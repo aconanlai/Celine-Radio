@@ -1,4 +1,14 @@
 
+
+/* This make more sense than trying to give NowPlaying It's folder. */
+.audio-player {
+  display: flex;
+  width: 50%;
+  background-color: #f6989d;
+
+}
+
+
 .controls {
   display: flex;
   width: 100px;
@@ -6,5 +16,6 @@
   margin:4px;
   cursor: pointer;
   margin-block-start: 5px;
-  color: #959596;  
+  color: blue;  
+  background-color: #f6989d;
 }

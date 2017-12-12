@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ToggleButtonContainer from './ToggleButton/ToggleButtonContainer';
+import NowPlayingContainer from '../AudioPlayer/NowPlaying/NowPlayingContainer';
 import Audio from './Audio/Audio';
 import './AudioPlayer.css';
 
-// I guess we should make this into a class that allows us to create if logic to render both Toggle and NowPlaying
 const AudioPlayer = () => (
-  <div>
+  <div className="audio-player">
     <ToggleButtonContainer />
+    <NowPlayingContainer />
     <Audio />
   </div>
 );

@@ -4,7 +4,12 @@ import './ToggleButton.css';
 
 const ToggleButton = (props) => {
   return (
-    <i onClick={props.toggle} className={!props.isPlaying ? 'fa fa-play controls' : 'fa fa-pause controls'} />
+    <div>
+      {props.filePath &&
+        <i onClick={props.toggle} className={!props.isPlaying ? 'fa fa-play controls' : 'fa fa-pause controls'} />
+      }
+    </div>
+
   );
 };
 

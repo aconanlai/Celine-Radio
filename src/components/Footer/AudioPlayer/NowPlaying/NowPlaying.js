@@ -3,8 +3,15 @@ import './NowPlaying.css';
 
 const NowPlaying = (props) => {
   return (
-    <div className="now-playing">Now Playing: Jamals static coded podcast </div>
+    <div className="now-playing">
+      {props.filePath &&
+        <div>
+          Now Playing: Jamals static coded podcast
+      </div>
+      }
+    </div>
   );
 };
 
 export default NowPlaying;
+

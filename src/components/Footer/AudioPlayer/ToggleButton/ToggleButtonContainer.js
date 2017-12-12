@@ -16,14 +16,13 @@ class ToggleButtonContainer extends Component {
   };
 
   render() {
-    if (this.props.filePath) {
-      return (<ToggleButton
+    return (
+      <ToggleButton
         isPlaying={this.props.isPlaying}
         toggle={this.toggle}
+        filePath={this.props.filePath}
       />
-      );
-    }
-    return null;
+    );
   }
 }
 const mapStateToProps = (state) => {
