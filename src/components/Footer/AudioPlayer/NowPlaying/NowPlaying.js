@@ -10,6 +10,5 @@ const NowPlaying = (props) => {
     </div>
   );
 };
-
 export default NowPlaying;
 
