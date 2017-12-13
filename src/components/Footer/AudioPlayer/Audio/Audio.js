@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Audio extends Component {
+  componentDidMount() {
+    if (this.props.isPlaying) {
+      this.audio.src = this.props.filePath;
+      this.audio.play();
+    }
+  }
   componentDidUpdate(prevProps) {
     if (this.props.filePath !== prevProps.filePath) {
       this.audio.src = this.props.filePath;
@@ -13,9 +19,7 @@ class Audio extends Component {
   }
   render() {
     return (
-      // TODO: make caption the title of the show
       <audio
-        // src={this.props.filePath}
         ref={(audio) => { this.audio = audio; }}
       />
     );

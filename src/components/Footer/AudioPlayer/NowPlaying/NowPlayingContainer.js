@@ -15,7 +15,7 @@ class NowPlayingContainer extends Component {
 const mapStateToProps = (state) => {
   return {
     filePath: state._audio.filePath,
-    // Here we will import our title state
   };
 };
+
 export default connect(mapStateToProps)(NowPlayingContainer);

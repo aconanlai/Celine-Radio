@@ -7,7 +7,6 @@ const ToggleButton = (props) => {
     <div>
       <i onClick={props.toggle} className={!props.isPlaying ? 'fa fa-play controls' : 'fa fa-pause controls'} />
     </div>
-
   );
 };
 

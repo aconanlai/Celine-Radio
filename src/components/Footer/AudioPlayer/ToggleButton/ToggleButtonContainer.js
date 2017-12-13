@@ -23,10 +23,11 @@ class ToggleButtonContainer extends Component {
     );
   }
 }
+
 const mapStateToProps = (state) => {
   return {
     isPlaying: state._audio.isPlaying,
   };
 };
-export default connect(mapStateToProps, { playAudio, pauseAudio, })(ToggleButtonContainer);
 
+export default connect(mapStateToProps, { playAudio, pauseAudio, })(ToggleButtonContainer);

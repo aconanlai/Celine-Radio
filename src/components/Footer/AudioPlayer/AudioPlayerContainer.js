@@ -5,15 +5,17 @@ import AudioPlayer from './AudioPlayer';
 class AudioPlayerContainer extends Component {
   render() {
     return (
-      < AudioPlayer
+      <AudioPlayer
         filePath={this.props.filePath}
       />
     );
   }
 }
+
 const mapStateToProps = (state) => {
   return {
     filePath: state._audio.filePath,
   };
 };
+
 export default connect(mapStateToProps)(AudioPlayerContainer);

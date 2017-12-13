@@ -17,4 +17,5 @@ const AudioPlayer = (props) => {
     </div>
   );
 };
+
 export default AudioPlayer;
