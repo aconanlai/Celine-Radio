@@ -1,13 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ToggleButtonContainer from './ToggleButton/ToggleButtonContainer';
+import NowPlayingContainer from '../AudioPlayer/NowPlaying/NowPlayingContainer';
 import Audio from './Audio/Audio';
 import './AudioPlayer.css';
 
-const AudioPlayer = () => (
-  <div>
-    <ToggleButtonContainer />
-    <Audio />
-  </div>
-);
+const AudioPlayer = (props) => {
+  return (
+    <div className="audio-player">
+      {props.filePath &&
+        <div className="audio-player" >
+          <ToggleButtonContainer />
+          <NowPlayingContainer />
+          <Audio />
+        </div>
+      }
+    </div>
+  );
+};
 
 export default AudioPlayer;

@@ -14,7 +14,6 @@ class ToggleButtonContainer extends Component {
       this.props.playAudio();
     }
   };
-
   render() {
     return (
       <ToggleButton
@@ -24,6 +23,7 @@ class ToggleButtonContainer extends Component {
     );
   }
 }
+
 const mapStateToProps = (state) => {
   return {
     isPlaying: state._audio.isPlaying,
@@ -31,4 +31,3 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, { playAudio, pauseAudio, })(ToggleButtonContainer);
-

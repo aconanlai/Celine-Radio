@@ -1,26 +1,15 @@
-.player {
+.audio-player {
   display: flex;
-  width:300px;
-  /* background-color: green */
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 25px;
+  margin: 4px;
+  color: black;
+  width: 70%;
+  background-color: #f6989d;
 }
-
-
 .controls {
   display: flex;
-  width: 100px;
-  flex-direction: row;
-  /* float: left; */
-  margin:4px;
+  width: 80px;
   cursor: pointer;
-  margin-block-start: 5px;
-  color: #959596;
-
-  
-}
-.controls:hover {
-  background-color: #f60000;
-  color: #000000;
-}
-.audio{
-  background-color: red
 }
