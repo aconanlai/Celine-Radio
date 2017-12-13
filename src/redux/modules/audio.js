@@ -13,6 +13,11 @@ export default function reducer(state = {
         ...state,
         isPlaying: false,
       };
+    case 'NOW_PLAYING':
+      return {
+        ...state,
+        title: action.title,
+      };
     case 'LOAD_NEW_FILE':
       return {
         ...state,
@@ -29,14 +34,24 @@ export const playAudio = () => {
     type: 'PLAY_AUDIO',
   };
 };
+
 export const pauseAudio = () => {
   return {
     type: 'PAUSE_AUDIO',
   };
 };
+
 export const loadNewFile = (path) => {
   return {
     type: 'LOAD_NEW_FILE',
     path,
   };
 };
+
+export const NowPlaying = (title) => {
+  return {
+    type: 'NOW_PLAYING',
+    title,
+  };
+};
+

@@ -2,7 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import './Episode.css';
 
-import { loadNewFile } from '../../redux/modules/audio';
+import {
+  loadNewFile,
+  NowPlaying
+} from '../../redux/modules/audio';
 
 const Loading = () => (
   <div>Loading...</div>
@@ -33,7 +36,10 @@ const EpisodeDisplay = (props) => {
       <div>
         <span
           className="play-episode-link"
-          onClick={() => props.loadNewFile(props.acf.audio_link)}
+          onClick={() => {
+            props.loadNewFile(props.acf.audio_link);
+            props.NowPlaying(props.title.rendered);
+          }}
         >
           PLAY
         </span>
@@ -57,4 +63,4 @@ const Episode = (props) => {
   );
 };
 
-export default connect(null, { loadNewFile, })(Episode);
+export default connect(null, { loadNewFile, NowPlaying, })(Episode);
