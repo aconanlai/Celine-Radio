@@ -14,11 +14,6 @@ export default function reducer(state = {
         ...state,
         isPlaying: false,
       };
-    case 'NOW_PLAYING':
-      return {
-        ...state,
-        title: action.title,
-      };
     case 'LOAD_NEW_FILE':
       return {
         ...state,
