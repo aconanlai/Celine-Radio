@@ -52,5 +52,9 @@ module.exports = {
     "no-lonely-if": ["warn"],
     "max-len": ["warn"]
   },
-  "plugins": ["react", "jsx-a11y", "import"]
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "import",
+  ]
 };

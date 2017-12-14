@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import KeywordList from './KeywordList';
-import { fetchKeywords } from '../../redux/modules/keywords';
+import { fetchKeywords, selectKeyword } from '../../redux/modules/keywords';
 
 class KeywordListContainer extends Component {
   async componentDidMount() {
@@ -10,7 +10,7 @@ class KeywordListContainer extends Component {
 
   render() {
     return (!this.props.isFetching
-        && <KeywordList keywords={this.props.keywords} />
+        && <KeywordList {...this.props} />
     );
   }
 }
@@ -22,4 +22,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchKeywords, })(KeywordListContainer);
+export default connect(mapStateToProps, { fetchKeywords, selectKeyword, })(KeywordListContainer);

@@ -34,7 +34,6 @@ export const requestKeywords = () => {
 };
 
 export const receiveKeywords = (keywords) => {
-  console.log(keywords);
   return {
     type: 'RECEIVE_KEYWORDS',
     keywords,
@@ -51,5 +50,12 @@ export const fetchKeywords = () => {
     }).then((json) => {
       dispatch(receiveKeywords(json));
     });
+  };
+};
+
+export const selectKeyword = (keyword) => {
+  return {
+    type: 'SELECT_KEYWORD',
+    value: keyword,
   };
 };

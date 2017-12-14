@@ -7,10 +7,6 @@ import EpisodeContainer from './components/Episode/EpisodeContainer';
 import Footer from './components/Footer/Footer';
 import './App.css';
 
-const notOnPageYet = () => (
-  <div>no episode selected yet</div>
-);
-
 const App = () => {
   return (
     <div className="app">
@@ -30,8 +26,7 @@ const App = () => {
         </Panel>
         <Panel>
           <Switch>
-            <Route path="/episodes/:id" component={EpisodeContainer} />
-            <Route path="*" component={notOnPageYet} />
+            <Route path="*" component={EpisodeContainer} />
           </Switch>
         </Panel>
       </div>
