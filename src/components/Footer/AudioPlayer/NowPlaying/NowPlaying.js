@@ -5,10 +5,9 @@ const NowPlaying = (props) => {
   return (
     <div className="now-playing">
       <div>
-        Now Playing: Jamals static coded podcast
+        Now Playing: {props.title}
       </div>
     </div>
   );
 };
 export default NowPlaying;
-

@@ -7,6 +7,7 @@ class NowPlayingContainer extends Component {
   render() {
     return (
       <NowPlaying
+        title={this.props.title}
       />
     );
   }
@@ -15,6 +16,7 @@ class NowPlayingContainer extends Component {
 const mapStateToProps = (state) => {
   return {
     filePath: state._audio.filePath,
+    title: state._audio.title,
   };
 };
 

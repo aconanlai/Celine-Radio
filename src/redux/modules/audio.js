@@ -1,6 +1,7 @@
 export default function reducer(state = {
   isPlaying: false,
   filePath: '',
+  title: '',
 }, action = {}) {
   switch (action.type) {
     case 'PLAY_AUDIO':
@@ -18,6 +19,7 @@ export default function reducer(state = {
         ...state,
         isPlaying: true,
         filePath: action.path,
+        title: action.title,
       };
     default:
       return state;
@@ -29,14 +31,17 @@ export const playAudio = () => {
     type: 'PLAY_AUDIO',
   };
 };
+
 export const pauseAudio = () => {
   return {
     type: 'PAUSE_AUDIO',
   };
 };
-export const loadNewFile = (path) => {
+
+export const loadNewFile = (path, title) => {
   return {
     type: 'LOAD_NEW_FILE',
     path,
+    title,
   };
 };
