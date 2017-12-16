@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.css';
 import AudioPlayerContainer from './AudioPlayer/AudioPlayerContainer';
-import LanguageTranslatorContainer from './LanguageTranslator/LanguageTranslatorContainer'
+import LanguageTranslatorContainer from './LanguageToggler/LanguageTogglerContainer';
 
 const Footer = () => {
   return (

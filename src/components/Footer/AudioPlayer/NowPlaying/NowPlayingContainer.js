@@ -1,17 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import NowPlaying from './NowPlaying';
-import './NowPlaying.css';
 
-class NowPlayingContainer extends Component {
-  render() {
-    return (
-      <NowPlaying
-        title={this.props.title}
-      />
-    );
-  }
-}
+const NowPlayingContainer = (props) => {
+  return (
+    <NowPlaying
+      title={props.title}
+    />
+  );
+};
 
 const mapStateToProps = (state) => {
   return {

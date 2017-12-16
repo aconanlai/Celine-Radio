@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Episode from './Episode';
 import { apiPath } from '../../config';
 
@@ -49,9 +50,19 @@ class EpisodeContainer extends Component {
 
   render() {
     return (
-      <Episode {...this.state.item} isLoading={this.state.loading} />
+      <Episode
+        {...this.state.item}
+        isLoading={this.state.loading}
+        language={this.props.language}
+      />
     );
   }
 }
 
-export default EpisodeContainer;
+const mapStateToProps = (state) => {
+  return {
+    language: state._language,
+  };
+};
+
+export default connect(mapStateToProps)(EpisodeContainer);
