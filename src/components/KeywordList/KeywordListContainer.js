@@ -19,6 +19,7 @@ const mapStateToProps = (state) => {
   return {
     keywords: state._keywords.keywords,
     isFetching: state._keywords.isFetching,
+    selectedKeyword: state._keywords.selectedKeyword,
   };
 };
 

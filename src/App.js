@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Panel from './components/Panel/Panel';
 import KeywordListContainer from './components/KeywordList/KeywordListContainer';
+import ShowListContainer from './components/ShowList/ShowListContainer';
 import EpisodeListContainer from './components/EpisodeList/EpisodeListContainer';
 import EpisodeContainer from './components/Episode/EpisodeContainer';
 import Footer from './components/Footer/Footer';
@@ -16,7 +17,7 @@ const App = () => {
         </Panel>
         <Panel>
           <div>
-            second Panel
+            <ShowListContainer />
           </div>
         </Panel>
         <Panel>

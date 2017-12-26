@@ -45,7 +45,7 @@ export const fetchKeywords = () => {
   // error handling
   return (dispatch) => {
     dispatch(requestKeywords());
-    return fetch(`${apiPath}keywords`).then((response) => {
+    return fetch(`${apiPath}keyword`).then((response) => {
       return response.json();
     }).then((json) => {
       dispatch(receiveKeywords(json));

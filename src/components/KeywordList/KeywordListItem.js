@@ -1,12 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const KeywordListItem = ({ keyword, selectKeyword, }) => (
-  <a onClick={() => { selectKeyword(keyword.id); }}>
+const KeywordListItem = ({ keyword, selectKeyword, selectedKeyword, }) => (
+  <a
+    onClick={() => { selectKeyword(keyword.id); }}
+    className="keyword-list-link"
+  >
     <li
-      className="keyword-list-item"
+      className={`keyword-list-item${selectedKeyword === keyword.id ? ' selected' : ''}`}
       dangerouslySetInnerHTML={{
-        __html: keyword.title.rendered,
+        __html: keyword.name,
       }}
     />
   </a>
