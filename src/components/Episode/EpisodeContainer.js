@@ -8,7 +8,6 @@ const NotOnPageYet = () => (
 
 const getSlugFromPath = (path) => {
   const parts = path.split('/');
-  console.log(parts);
   if (parts[1] === 'episodes') {
     return parts[2];
   }
