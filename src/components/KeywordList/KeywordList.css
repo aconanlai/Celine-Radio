@@ -1,0 +1,19 @@
+.keyword-list-link {
+  display: block;
+}
+
+.keyword-list-item {
+  display: inline-block;
+  margin-bottom: 1.5em;
+  color: blue;
+}
+
+.keyword-list-item:hover {
+  cursor: pointer;
+  color: black;
+  text-decoration: underline;
+}
+
+.keyword-list-item.selected {
+  background: yellow;
+}

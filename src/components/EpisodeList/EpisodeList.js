@@ -2,10 +2,10 @@ import React from 'react';
 import EpisodeListItem from './EpisodeListItem';
 
 const EpisodeList = props => (
-  <div className="List">
+  <div>
     <ul>
       {props.episodes.map((episode) => {
-        return (<EpisodeListItem key={episode.slug} item={episode} />);
+        return (<EpisodeListItem key={episode.id} item={episode} />);
       })}
     </ul>
   </div>

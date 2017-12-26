@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import EpisodeList from './EpisodeList';
 import { apiPath } from '../../config';
 
-class PodCastListContainer extends Component {
+class EpisodeListContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,4 +32,4 @@ class PodCastListContainer extends Component {
   }
 }
 
-export default PodCastListContainer;
+export default EpisodeListContainer;

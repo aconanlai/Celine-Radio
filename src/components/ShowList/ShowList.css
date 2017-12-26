@@ -1,0 +1,16 @@
+.show-list-link {
+  text-decoration: none;
+}
+
+.show-list-link:hover {
+  color: black !important;
+  text-decoration: underline;
+}
+
+.show-list-link:visited {
+  color: blue;
+}
+
+.show-list-item {
+  margin-bottom: 1.5em;
+}

@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import Episode from './Episode';
 import { apiPath } from '../../config';
 
+const NotOnPageYet = () => (
+  <div>no episode selected yet</div>
+);
+
 const getSlugFromPath = (path) => {
   const parts = path.split('/');
   if (parts[1] === 'episodes') {
@@ -15,7 +19,8 @@ class EpisodeContainer extends Component {
     super(props);
     this.state = {
       item: {},
-      loading: true,
+      isLoading: true,
+      foundEpisode: false,
     };
   }
 
@@ -43,13 +48,16 @@ class EpisodeContainer extends Component {
     const item = json;
     this.setState({
       item: item[0],
-      loading: false,
+      isLoading: false,
+      foundEpisode: true,
     });
   }
 
   render() {
     return (
-      <Episode {...this.state.item} isLoading={this.state.loading} />
+      this.state.foundEpisode ?
+        <Episode {...this.state.item} isLoading={this.state.isLoading} />
+        : <NotOnPageYet />
     );
   }
 }
