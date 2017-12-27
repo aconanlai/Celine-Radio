@@ -2,8 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './EpisodeList.css';
 
+const scrollToEpisodePage = () => {
+  const classToScrollTo = document.querySelectorAll('.episode-page')[0];
+  classToScrollTo.scrollIntoView();
+};
+
 const EpisodeListItem = ({ item, }) => (
   <Link
+    onClick={() => scrollToEpisodePage()}
     className="episode-list-link"
     to={`/episodes/${item.slug}`}
   >
@@ -17,4 +23,3 @@ const EpisodeListItem = ({ item, }) => (
 );
 
 export default EpisodeListItem;
-

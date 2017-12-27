@@ -26,7 +26,7 @@
 }
 
 .panel {
-  min-height: 667px;
+  min-height: 100vh;
 }
 
 .footer {
