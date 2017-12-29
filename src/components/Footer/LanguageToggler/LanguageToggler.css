@@ -6,5 +6,14 @@
   padding-top: 5px;
   margin: 4px;
   color: black;
-  width: 70%;
+  width: 75px;
+}
+
+.language-toggle-slash {
+  margin: 0px 5px;
+}
+
+.language-selected {
+  text-decoration: underline;
+  font-weight: 800;
 }
