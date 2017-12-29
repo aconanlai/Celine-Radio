@@ -12,6 +12,7 @@ const KeywordList = props => (
             keyword={keyword}
             selectKeyword={props.selectKeyword}
             selectedKeyword={props.selectedKeyword}
+            language={props.language}
           />);
       })}
     </ul>

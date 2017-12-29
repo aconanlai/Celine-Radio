@@ -17,6 +17,7 @@ class KeywordListContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    language: state._language,
     keywords: state._keywords.keywords,
     isFetching: state._keywords.isFetching,
     selectedKeyword: state._keywords.selectedKeyword,
