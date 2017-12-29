@@ -2,6 +2,7 @@ import { apiPath } from '../../config';
 
 export default function reducer(state = {
   shows: [],
+  selectedShow: null,
   isFetching: true,
 }, action = {}) {
   switch (action.type) {
@@ -15,6 +16,11 @@ export default function reducer(state = {
         ...state,
         isFetching: false,
         shows: action.shows,
+      };
+    case 'SELECT_SHOW':
+      return {
+        ...state,
+        selectedShow: action.show,
       };
     default:
       return state;
@@ -44,5 +50,12 @@ export const fetchShows = () => {
     }).then((json) => {
       dispatch(receiveShows(json));
     });
+  };
+};
+
+export const selectShow = (show) => {
+  return {
+    type: 'SELECT_SHOW',
+    show,
   };
 };
