@@ -5,7 +5,7 @@
   height: 25px;
   margin: 4px;
   color: black;
-  width: 70%;
+  flex-grow: 1;
   background-color: #f6989d;
 }
 .controls {

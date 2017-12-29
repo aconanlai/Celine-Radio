@@ -67,4 +67,10 @@ class EpisodeContainer extends Component {
   }
 }
 
-export default connect(null, { loadNewFile, })(EpisodeContainer);
+const mapStateToProps = (state) => {
+  return {
+    language: state._language,
+  };
+};
+
+export default connect(mapStateToProps, { loadNewFile, })(EpisodeContainer);
