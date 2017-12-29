@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Episode from './Episode';
 import { apiPath } from '../../config';
+
+import {
+  loadNewFile
+} from '../../redux/modules/audio';
 
 const NotOnPageYet = () => (
   <div>no episode selected yet</div>
@@ -8,8 +13,8 @@ const NotOnPageYet = () => (
 
 const getSlugFromPath = (path) => {
   const parts = path.split('/');
-  if (parts[1] === 'episodes') {
-    return parts[2];
+  if (parts[3] === 'episodes') {
+    return parts[4];
   }
   return false;
 };
@@ -56,10 +61,10 @@ class EpisodeContainer extends Component {
   render() {
     return (
       this.state.foundEpisode ?
-        <Episode {...this.state.item} isLoading={this.state.isLoading} />
+        <Episode {...this.state.item} isLoading={this.state.isLoading} {...this.props} />
         : <NotOnPageYet />
     );
   }
 }
 
-export default EpisodeContainer;
+export default connect(null, { loadNewFile, })(EpisodeContainer);

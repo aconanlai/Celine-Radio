@@ -1,10 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import './Episode.css';
-
-import {
-  loadNewFile
-} from '../../redux/modules/audio';
 
 const Loading = () => (
   <div>Loading...</div>
@@ -59,4 +54,4 @@ const Episode = (props) => {
   );
 };
 
-export default connect(null, { loadNewFile, })(Episode);
+export default Episode;

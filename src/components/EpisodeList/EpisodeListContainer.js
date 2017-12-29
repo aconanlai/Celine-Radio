@@ -30,7 +30,7 @@ class EpisodeListContainer extends Component {
 
   findAndLoadData() {
     const show = getSlugFromPath(this.props.match.url);
-    if (show) {
+    if (show && show !== this.props.selectedShow) {
       this.props.selectShow(show);
       this.props.fetchEpisodes(show);
     }
@@ -38,7 +38,7 @@ class EpisodeListContainer extends Component {
 
   render() {
     return this.props.selectedShow === null ? <NotOnPageYet /> :
-    <EpisodeList episodes={this.props.episodes} />;
+    <EpisodeList {...this.props} />;
   }
 }
 

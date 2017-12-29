@@ -5,7 +5,11 @@ const EpisodeList = props => (
   <div>
     <ul>
       {props.episodes.map((episode) => {
-        return (<EpisodeListItem key={episode.id} item={episode} />);
+        return (<EpisodeListItem
+          key={episode.id}
+          item={episode}
+          selectedShow={props.selectedShow}
+        />);
       })}
     </ul>
   </div>
