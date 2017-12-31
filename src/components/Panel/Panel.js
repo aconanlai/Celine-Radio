@@ -3,7 +3,7 @@ import './Panel.css';
 
 const Panel = (props) => {
   return (
-    <div className={props.panelClassName}>
+    <div className={'panel ' + props.panelClassName}>
       {props.children}
     </div>
   );

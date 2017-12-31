@@ -1,4 +1,4 @@
- .panel-keyword-list, .panel-show-list, .panel-espiode-list, .panel-episode {
+ .panel{
   flex: 1;
   border-right: 0.1px #959596 solid;
   padding: 20px;

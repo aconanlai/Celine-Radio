@@ -1,22 +1,14 @@
-
 const scrollToFactory = (className) => {
-  const classToScrollTo = document.querySelectorAll(className)[0];
-  classToScrollTo.scrollIntoView();
+  return () => {
+    const classToScrollTo = document.querySelectorAll(className)[0];
+    classToScrollTo.scrollIntoView();
+  };
 };
 
-export function scrollToShowLinks() {
-  scrollToFactory('.panel-show-list');
-}
+export const scrollToShowLinks = scrollToFactory('.show-list');
 
-export function scrollToAudioPlayer() {
-  scrollToFactory('.footer');
-}
+export const scrollToAudioPlayer = scrollToFactory('.footer');
 
-export function scrollToEpisodeList() {
-  scrollToFactory('.panel-episode-list');
-}
+export const scrollToEpisodeList = scrollToFactory('.episode-list');
 
-export function scrollToEpisodePage() {
-  scrollToFactory('.panel-episode');
-}
-
+export const scrollToEpisodePage = scrollToFactory('.episode');
