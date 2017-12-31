@@ -1,3 +1,11 @@
+.show-name {
+  margin-bottom: 10px;
+}
+
+.show-description {
+  margin-bottom: 10px;
+}
+
 .episode-list-link {
   text-decoration: none;
 }

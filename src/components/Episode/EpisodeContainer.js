@@ -55,9 +55,9 @@ class EpisodeContainer extends Component {
       setTimeout(this.findShowName, 100);
       return;
     }
-    const selectedShowName = this.props.shows.length > 0 ? this.props.shows.find((show) => {
+    const selectedShowName = this.props.shows.find((show) => {
       return show.slug === this.props.selectedShow;
-    }).name : '';
+    }).name;
     this.setState({
       selectedShowName,
       selectedShowSlug: this.props.selectedShow,

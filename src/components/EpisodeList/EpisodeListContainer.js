@@ -18,6 +18,14 @@ const getSlugFromPath = (path) => {
 };
 
 class EpisodeListContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: {},
+    };
+    this.findShowData = this.findShowData.bind(this);
+  }
+
   async componentDidMount() {
     this.findAndLoadData();
   }
@@ -33,12 +41,27 @@ class EpisodeListContainer extends Component {
     if (show && show !== this.props.selectedShow) {
       this.props.selectShow(show);
       this.props.fetchEpisodes(show);
+      this.findShowData(show);
     }
+  }
+
+  findShowData(showSlug) {
+    const showsFound = this.props.shows.length > 0;
+    if (!showsFound) {
+      setTimeout(() => this.findShowData(showSlug), 100);
+      return;
+    }
+    const data = this.props.shows.find((show) => {
+      return show.slug === showSlug;
+    });
+    this.setState({
+      data,
+    });
   }
 
   render() {
     return this.props.selectedShow === null ? <NotOnPageYet /> :
-    <EpisodeList {...this.props} />;
+    <EpisodeList {...this.props} {...this.state.data} />;
   }
 }
 
@@ -55,6 +78,8 @@ const getSelectedShowEpisodes = createSelector(
 const mapStateToProps = (state) => {
   return {
     episodes: getSelectedShowEpisodes(state),
+    language: state._language,
+    shows: state._shows.shows,
     selectedShow: state._shows.selectedShow,
     isFetching: state._episodes.isFetching,
   };
