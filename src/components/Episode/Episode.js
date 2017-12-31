@@ -46,7 +46,7 @@ const EpisodeDisplay = (props) => {
       <div
         className="episode-description"
         dangerouslySetInnerHTML={{
-          __html: props.language === 'en' ? props.content.rendered : props.acf.french_description,
+          __html: props.language === 'en' ? props.content.rendered : props.acf.french_description || props.content.rendered,
         }}
       />
     </div>

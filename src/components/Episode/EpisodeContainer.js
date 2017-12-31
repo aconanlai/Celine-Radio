@@ -28,6 +28,7 @@ class EpisodeContainer extends Component {
       foundEpisode: false,
       selectedShowName: '',
     };
+    this.findShowName = this.findShowName.bind(this);
   }
 
   async componentDidMount() {
