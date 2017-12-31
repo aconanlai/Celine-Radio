@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './Episode.css';
+import { scrollToAudioPlayer } from '../../scrollerTo';
 
 import {
   loadNewFile
@@ -35,7 +36,8 @@ const EpisodeDisplay = (props) => {
       <div>
         <span
           className="play-episode-link"
-          onClick={() => props.loadNewFile(props.acf.audio_link, props.title.rendered)}
+          onClick={
+            () => { props.loadNewFile(props.acf.audio_link, props.title.rendered); scrollToAudioPlayer(); }}
         >
           PLAY
         </span>

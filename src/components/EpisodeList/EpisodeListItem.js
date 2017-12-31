@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './EpisodeList.css';
+import { scrollToEpisodePage } from '../../scrollerTo';
 
 const EpisodeListItem = ({ item, }) => (
   <Link
+    onClick={scrollToEpisodePage}
     className="episode-list-link"
     to={`/episodes/${item.slug}`}
   >
@@ -17,4 +19,3 @@ const EpisodeListItem = ({ item, }) => (
 );
 
 export default EpisodeListItem;
-

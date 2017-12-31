@@ -1,10 +1,9 @@
 import React from 'react';
-
 import './Panel.css';
 
 const Panel = (props) => {
   return (
-    <div className="panel">
+    <div className={'panel ' + props.panelClassName}>
       {props.children}
     </div>
   );

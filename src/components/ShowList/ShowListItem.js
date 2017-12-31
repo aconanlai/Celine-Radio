@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { scrollToEpisodeList } from '../../scrollerTo';
 
 const ShowListItem = ({ show, }) => (
   <Link
+    onClick={scrollToEpisodeList}
     className="show-list-link"
     to={`/shows/${show.slug}`}
   >
@@ -16,4 +18,3 @@ const ShowListItem = ({ show, }) => (
 );
 
 export default ShowListItem;
-
