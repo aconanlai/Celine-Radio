@@ -23,9 +23,10 @@ class EpisodeContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      item: {},
+      data: {},
       isLoading: true,
       foundEpisode: false,
+      selectedShowName: '',
     };
   }
 
@@ -42,17 +43,33 @@ class EpisodeContainer extends Component {
   findAndLoadData() {
     const slug = getSlugFromPath(this.props.match.url);
     if (slug) {
-      this.fetchItem(slug);
+      this.findShowName();
+      this.fetchShow(slug);
     }
   }
 
-  async fetchItem(slug) {
+  findShowName() {
+    const showsFound = this.props.shows.length > 0;
+    if (!showsFound) {
+      setTimeout(this.findShowName, 100);
+      return;
+    }
+    const selectedShowName = this.props.shows.length > 0 ? this.props.shows.find((show) => {
+      return show.slug === this.props.selectedShow;
+    }).name : '';
+    this.setState({
+      selectedShowName,
+      selectedShowSlug: this.props.selectedShow,
+    });
+  }
+
+  async fetchShow(slug) {
     const endpoint = `${apiPath}episodes?slug=${slug}&_embed`;
     const response = await fetch(endpoint);
     const json = await response.json();
     const item = json;
     this.setState({
-      item: item[0],
+      data: item[0],
       isLoading: false,
       foundEpisode: true,
     });
@@ -61,7 +78,13 @@ class EpisodeContainer extends Component {
   render() {
     return (
       this.state.foundEpisode ?
-        <Episode {...this.state.item} isLoading={this.state.isLoading} {...this.props} />
+        <Episode
+          {...this.state.data}
+          isLoading={this.state.isLoading}
+          {...this.props}
+          selectedShowName={this.state.selectedShowName}
+          selectedShowSlug={this.state.selectedShowSlug}
+        />
         : <NotOnPageYet />
     );
   }
@@ -70,6 +93,8 @@ class EpisodeContainer extends Component {
 const mapStateToProps = (state) => {
   return {
     language: state._language,
+    shows: state._shows.shows,
+    selectedShow: state._shows.selectedShow,
   };
 };
 

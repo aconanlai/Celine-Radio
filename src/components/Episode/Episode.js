@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Episode.css';
 
 const Loading = () => (
@@ -17,6 +18,13 @@ const EpisodeDisplay = (props) => {
   const image = checkIfImageExists(props._embedded);
   return (
     <div className="episode-page">
+      <Link
+        to={`/shows/${props.selectedShowSlug}`}
+      >
+        <h2>
+          {props.selectedShowName}
+        </h2>
+      </Link>
       <h1
         className="episode-title"
       >
