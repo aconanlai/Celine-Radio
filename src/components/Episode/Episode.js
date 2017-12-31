@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './Episode.css';
+import { scrollToAudioPlayer } from '../../scrollerTo';
 
 import {
   loadNewFile
@@ -9,11 +10,6 @@ import {
 const Loading = () => (
   <div>Loading...</div>
 );
-
-const scrollToAudioPlayer = () => {
-  const classToScrollTo = document.querySelectorAll('.audio-player')[0];
-  classToScrollTo.scrollIntoView();
-};
 
 const checkIfImageExists = (embedded) => {
   try {
@@ -41,7 +37,7 @@ const EpisodeDisplay = (props) => {
         <span
           className="play-episode-link"
           onClick={
-            () => {props.loadNewFile(props.acf.audio_link, props.title.rendered); scrollToAudioPlayer();}}
+            () => { props.loadNewFile(props.acf.audio_link, props.title.rendered); scrollToAudioPlayer(); }}
         >
           PLAY
         </span>

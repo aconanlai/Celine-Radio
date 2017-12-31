@@ -10,26 +10,21 @@
   flex-grow: 1;
 }
 
-.footer {
-  display: flex;
-  border-right: 0.1px rgb(218, 255, 243) solid;
-}
-
 @media screen  and (max-width:600px) {
   .app {
     height: 100%;
     width: 100%;    
   }
 
-.panel-container {
-  flex-direction: column;
-}
+  .panel-container {
+    flex-direction: column;
+  }
 
-.panel {
-  min-height: 100vh;
-}
+  .panel-keyword-list, .panel-show-list, .panel-espiode-list, .panel-episode {
+    min-height: 100vh;
+  }
 
-.footer {
-  height: 130px;
-}  
+  .footer {
+    height: 130px;
+  }  
 }

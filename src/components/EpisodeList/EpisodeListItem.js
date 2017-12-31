@@ -1,15 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './EpisodeList.css';
-
-const scrollToEpisodePage = () => {
-  const classToScrollTo = document.querySelectorAll('.episode-page')[0];
-  classToScrollTo.scrollIntoView();
-};
+import { scrollToEpisodePage } from '../../scrollerTo';
 
 const EpisodeListItem = ({ item, }) => (
   <Link
-    onClick={() => scrollToEpisodePage()}
+    onClick={scrollToEpisodePage}
     className="episode-list-link"
     to={`/episodes/${item.slug}`}
   >

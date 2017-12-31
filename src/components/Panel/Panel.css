@@ -1,7 +1,8 @@
-.panel {
+ .panel-keyword-list, .panel-show-list, .panel-espiode-list, .panel-episode {
   flex: 1;
   border-right: 0.1px #959596 solid;
   padding: 20px;
   overflow-y: auto;
-  background-color: #f6989d
+  background-color: #f6989d;
 }
+

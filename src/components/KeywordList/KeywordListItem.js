@@ -1,9 +1,5 @@
 import React from 'react';
-
-const scrollToShowLinks = () => {
-  const classToScrollTo = document.querySelectorAll('.List')[0];
-  classToScrollTo.scrollIntoView();
-};
+import { scrollToShowLinks } from '../../scrollerTo';
 
 const KeywordListItem = ({ keyword, selectKeyword, selectedKeyword, }) => (
   <a

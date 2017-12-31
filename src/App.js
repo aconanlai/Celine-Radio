@@ -12,20 +12,20 @@ const App = () => {
   return (
     <div className="app">
       <div className="panel-container">
-        <Panel>
+        <Panel panelClassName="panel-keyword-list">
           <KeywordListContainer />
         </Panel>
-        <Panel>
+        <Panel panelClassName="panel-show-list" >
           <div>
             <ShowListContainer />
           </div>
         </Panel>
-        <Panel>
+        <Panel panelClassName="panel-episode-list">
           <div>
             <EpisodeListContainer />
           </div>
         </Panel>
-        <Panel>
+        <Panel panelClassName="panel-episode" >
           <Switch>
             <Route path="*" component={EpisodeContainer} />
           </Switch>
