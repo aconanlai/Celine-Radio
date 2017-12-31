@@ -15,7 +15,7 @@ const App = () => {
         <Panel panelClassName="keyword-list">
           <KeywordListContainer />
         </Panel>
-        <Panel panelClassName="show-list" >
+        <Panel panelClassName="show-list">
           <div>
             <ShowListContainer />
           </div>
@@ -25,7 +25,7 @@ const App = () => {
             <EpisodeListContainer />
           </div>
         </Panel>
-        <Panel panelClassName="episode" >
+        <Panel panelClassName="episode">
           <Switch>
             <Route path="*" component={EpisodeContainer} />
           </Switch>
