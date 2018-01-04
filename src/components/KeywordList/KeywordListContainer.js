@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { createSelector } from 'reselect';
 import KeywordList from './KeywordList';
 import { fetchKeywords, selectKeyword } from '../../redux/modules/keywords';
 
@@ -15,10 +16,19 @@ class KeywordListContainer extends Component {
   }
 }
 
+const getKeywords = state => state._keywords.keywords;
+
+const getKeywordsArray = createSelector(
+  [getKeywords],
+  (keywords) => {
+    return Object.values(keywords);
+  }
+);
+
 const mapStateToProps = (state) => {
   return {
     language: state._language,
-    keywords: state._keywords.keywords,
+    keywords: getKeywordsArray(state),
     isFetching: state._keywords.isFetching,
     selectedKeyword: state._keywords.selectedKeyword,
   };

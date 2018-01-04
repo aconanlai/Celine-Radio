@@ -27,6 +27,7 @@ class EpisodeContainer extends Component {
       isLoading: true,
       foundEpisode: false,
       selectedShowName: '',
+      selectedShowSlug: '',
     };
     this.findShowName = this.findShowName.bind(this);
   }
@@ -50,8 +51,9 @@ class EpisodeContainer extends Component {
   }
 
   findShowName() {
-    const showsFound = this.props.shows.length > 0;
-    if (!showsFound) {
+    const isShowsFound = this.props.shows.length > 0;
+    if (!isShowsFound) {
+      // wait until shows have arrived from server
       setTimeout(this.findShowName, 100);
       return;
     }

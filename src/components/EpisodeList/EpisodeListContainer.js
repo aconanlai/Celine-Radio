@@ -46,8 +46,9 @@ class EpisodeListContainer extends Component {
   }
 
   findShowData(showSlug) {
-    const showsFound = this.props.shows.length > 0;
-    if (!showsFound) {
+    const isShowsFound = this.props.shows.length > 0;
+    if (!isShowsFound) {
+      // wait until shows have arrived from server
       setTimeout(() => this.findShowData(showSlug), 100);
       return;
     }
@@ -80,10 +81,10 @@ const mapStateToProps = (state) => {
     episodes: getSelectedShowEpisodes(state),
     language: state._language,
     shows: state._shows.shows,
+    keywords: state._keywords.keywords,
     selectedShow: state._shows.selectedShow,
     isFetching: state._episodes.isFetching,
   };
 };
 
 export default connect(mapStateToProps, { fetchEpisodes, selectShow, })(EpisodeListContainer);
-
