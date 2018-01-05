@@ -1,21 +1,19 @@
 import React from 'react';
 import ToggleButtonContainer from './ToggleButton/ToggleButtonContainer';
 import NowPlayingContainer from '../AudioPlayer/NowPlaying/NowPlayingContainer';
-import ProgressBarContainer from '../AudioPlayer/ProgressBar/ProgressBarContainer';
+import ProgressBar from '../AudioPlayer/ProgressBar/ProgressBar';
 import Audio from './Audio/Audio';
 import './AudioPlayer.css';
 
 const AudioPlayer = (props) => {
   return (
     <div className="audio-player">
-      {props.filePath &&
-        <div className="audio-player" >
-          <ToggleButtonContainer />
-          <ProgressBarContainer />
-          <NowPlayingContainer />
-          <Audio />
-        </div>
-      }
+      <div className="audio-player" >
+        <ToggleButtonContainer />
+        <ProgressBar />
+        <NowPlayingContainer />
+        <Audio />
+      </div>
     </div>
   );
 };
