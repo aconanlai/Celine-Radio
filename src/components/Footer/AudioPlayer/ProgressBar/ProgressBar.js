@@ -1,19 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './ProgressBar.css';
 
-class ProgressBar extends Component {
-  // I see lint errors here so disreard -  contemplating how i'm going to use onclick seeking- this must require some state i belevie?
-
-  render() {
-    return (
-      <div>
-        <canvas id="progress" width="400" height="20" />
-        <span id="current-time">0:00 </span> /
-      <span id="full-duration">0:00</span>
-      </div >
-
-    );
-  }
-}
+const ProgressBar = () => {
+  return (
+    <div>
+      <div id="progress">
+        <div id="bar">
+          <div id="handle" />
+        </div>
+      </div>
+      <div className="" id="time">
+        <span id="current-time">0:00</span> /
+        <span id="full-duration">0:00</span>
+      </div>
+    </div>
+  );
+};
 
 export default ProgressBar;

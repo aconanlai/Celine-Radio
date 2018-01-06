@@ -1,4 +1,24 @@
-#progress{
-  border-radius: 15px;
-  background: rgba(0,0,0,.3);
+
+
+#progress {
+  background: rgba(43, 0, 0, 0.3);
+  width:200px;
+  height: 10px;
+  cursor: pointer;
+}
+
+#progress > #bar {
+  width: 200px;
+}
+
+#progress > #bar > div {
+  height: 10px;
+  width: 0px;
+  background: white;
+}
+
+#time {
+  width: 100px;
+  color: rgb(13, 5, 5);
+  font-size: 12px;
 }

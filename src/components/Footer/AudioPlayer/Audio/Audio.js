@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import convertElapsedTime from '../../../../convertElaspedTime';
+import convertElapsedTime from '../../../../timeUtils';
 import '../ProgressBar/ProgressBar.css';
-
-const canvasWidth = 400;
 
 class Audio extends Component {
   componentDidMount() {
@@ -13,42 +11,55 @@ class Audio extends Component {
     }
   }
   componentDidUpdate(prevProps) {
-    const durationTime = document.getElementById('podcast-id-audio');
-    const canvas = document.getElementById('progress').getContext('2d');
-    durationTime.onloadedmetadata = function setDurationTime() {
-      const { duration, } = durationTime;
-      document.getElementById('full-duration').innerHTML = convertElapsedTime(duration)
-      canvas.fillRect(0, 0, canvasWidth, 50);
-    };
-
     if (this.props.filePath !== prevProps.filePath) {
       this.audio.src = this.props.filePath;
       this.audio.play();
+      this.getAudioFullDuration();
     }
     if (this.props.isPlaying !== prevProps.isPlaying) {
       this.props.isPlaying ? this.audio.play() : this.audio.pause();
     }
   }
-  render() {
-    const updateOn = () => {
-      const theCurrentTime = this.audio.currentTime;
-      const canvas = document.getElementById('progress').getContext('2d');
-      const { duration, } = this.audio;
-      const percentage = theCurrentTime / duration;
-      const progress = (canvasWidth * percentage);
-      canvas.clearRect(0, 0, canvasWidth, 50);
-      canvas.fillStyle = '#000';
-      canvas.fillRect(0, 0, canvasWidth, 50);
-      canvas.fillStyle = '#FF0000';
-      canvas.fillRect(0, 0, progress, 50);
-      document.getElementById('current-time').innerHTML = convertElapsedTime(theCurrentTime);
+
+  getAudioFullDuration = () => {
+    const audioPlayer = document.getElementById('audio-podcast');
+    audioPlayer.onloadedmetadata = function setDurationTime() {
+      const { duration, } = audioPlayer;
+      document.getElementById('full-duration').innerHTML = convertElapsedTime(duration);
     };
+  }
+
+  updateOn = () => {
+    const audioPlayer = document.getElementById('audio-podcast');
+    const progressBar = document.getElementById('bar');
+    const handle = document.getElementById('handle');
+    const { currentTime, duration, } = this.audio;
+    const sizeOfBar = 200; // Still Working on a solution to scale to moblie 
+    const currentSize = parseInt(currentTime * (sizeOfBar / duration), 10);
+    handle.style.width = `${currentSize}px`;
+    progressBar.addEventListener(
+      'click',
+      function clickedBar(e) {
+        if (!audioPlayer.ended) {
+          const mouseX = e.pageX - progressBar.offsetLeft;
+          const newTime = (mouseX * audioPlayer.duration) / sizeOfBar;
+          audioPlayer.currentTime = newTime;
+          handle.style.width = `${mouseX}px`;
+        }
+      },
+      false
+    );
+    document.getElementById('current-time').innerHTML = convertElapsedTime(currentTime);
+  };
+  render() {
     return (
       <div>
         <audio
-          id="podcast-id-audio"
-          onTimeUpdate={updateOn}
-          ref={(audio) => { this.audio = audio; }}
+          id="audio-podcast"
+          onTimeUpdate={this.updateOn}
+          ref={audio => {
+            this.audio = audio;
+          }}
         />
       </div>
     );

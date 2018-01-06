@@ -4,5 +4,5 @@ export default function convertElapsedTime(inputSeconds) {
     seconds = "0" + seconds;
   }
   let minutes = Math.floor(inputSeconds / 60);
-  return minutes + ':' + seconds;
+  return minutes + ":" + seconds;
 }
