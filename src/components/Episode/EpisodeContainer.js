@@ -3,14 +3,18 @@ import { connect } from 'react-redux';
 import Episode from './Episode';
 import { apiPath } from '../../config';
 
+import {
+  loadNewFile
+} from '../../redux/modules/audio';
+
 const NotOnPageYet = () => (
   <div>no episode selected yet</div>
 );
 
 const getSlugFromPath = (path) => {
   const parts = path.split('/');
-  if (parts[1] === 'episodes') {
-    return parts[2];
+  if (parts[3] === 'episodes') {
+    return parts[4];
   }
   return false;
 };
@@ -19,10 +23,13 @@ class EpisodeContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      item: {},
+      data: {},
       isLoading: true,
       foundEpisode: false,
+      selectedShowName: '',
+      selectedShowSlug: '',
     };
+    this.findShowName = this.findShowName.bind(this);
   }
 
   async componentDidMount() {
@@ -38,17 +45,34 @@ class EpisodeContainer extends Component {
   findAndLoadData() {
     const slug = getSlugFromPath(this.props.match.url);
     if (slug) {
-      this.fetchItem(slug);
+      this.findShowName();
+      this.fetchShow(slug);
     }
   }
 
-  async fetchItem(slug) {
+  findShowName() {
+    const isShowsFound = this.props.shows.length > 0;
+    if (!isShowsFound) {
+      // wait until shows have arrived from server
+      setTimeout(this.findShowName, 100);
+      return;
+    }
+    const selectedShowName = this.props.shows.find((show) => {
+      return show.slug === this.props.selectedShow;
+    }).name;
+    this.setState({
+      selectedShowName,
+      selectedShowSlug: this.props.selectedShow,
+    });
+  }
+
+  async fetchShow(slug) {
     const endpoint = `${apiPath}episodes?slug=${slug}&_embed`;
     const response = await fetch(endpoint);
     const json = await response.json();
     const item = json;
     this.setState({
-      item: item[0],
+      data: item[0],
       isLoading: false,
       foundEpisode: true,
     });
@@ -58,9 +82,11 @@ class EpisodeContainer extends Component {
     return (
       this.state.foundEpisode ?
         <Episode
-          {...this.state.item}
+          {...this.state.data}
           isLoading={this.state.isLoading}
-          language={this.props.language}
+          {...this.props}
+          selectedShowName={this.state.selectedShowName}
+          selectedShowSlug={this.state.selectedShowSlug}
         />
         : <NotOnPageYet />
     );
@@ -70,7 +96,9 @@ class EpisodeContainer extends Component {
 const mapStateToProps = (state) => {
   return {
     language: state._language,
+    shows: state._shows.shows,
+    selectedShow: state._shows.selectedShow,
   };
 };
 
-export default connect(mapStateToProps)(EpisodeContainer);
+export default connect(mapStateToProps, { loadNewFile, })(EpisodeContainer);

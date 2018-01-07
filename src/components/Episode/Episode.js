@@ -1,11 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './Episode.css';
 import { scrollToAudioPlayer } from '../../scrollerTo';
-
-import {
-  loadNewFile
-} from '../../redux/modules/audio';
 
 const Loading = () => (
   <div>Loading...</div>
@@ -23,6 +19,13 @@ const EpisodeDisplay = (props) => {
   const image = checkIfImageExists(props._embedded);
   return (
     <div className="episode-page">
+      <Link
+        to={`/shows/${props.selectedShowSlug}`}
+      >
+        <h2>
+          {props.selectedShowName}
+        </h2>
+      </Link>
       <h1
         className="episode-title"
       >
@@ -45,7 +48,7 @@ const EpisodeDisplay = (props) => {
       <div
         className="episode-description"
         dangerouslySetInnerHTML={{
-          __html: props.language === 'en' ? props.content.rendered : props.acf.french_description,
+          __html: props.language === 'en' ? props.content.rendered : props.acf.french_description || props.content.rendered,
         }}
       />
     </div>
@@ -61,4 +64,4 @@ const Episode = (props) => {
   );
 };
 
-export default connect(null, { loadNewFile, })(Episode);
+export default Episode;

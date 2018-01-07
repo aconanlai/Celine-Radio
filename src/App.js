@@ -22,7 +22,7 @@ const App = () => {
         </Panel>
         <Panel panelClassName="episode-list">
           <div>
-            <EpisodeListContainer />
+            <Route path="*" component={EpisodeListContainer} />
           </div>
         </Panel>
         <Panel panelClassName="episode">

@@ -30,8 +30,11 @@ const getVisibleShows = createSelector(
 
 const mapStateToProps = (state) => {
   return {
+    language: state._language,
     shows: getVisibleShows(state),
     isFetching: state._shows.isFetching,
+    keywords: state._keywords.keywords,
+    selectedKeyword: state._keywords.selectedKeyword,
   };
 };
 

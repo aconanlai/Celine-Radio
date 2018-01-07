@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import './EpisodeList.css';
 import { scrollToEpisodePage } from '../../scrollerTo';
 
-const EpisodeListItem = ({ item, }) => (
+const EpisodeListItem = ({ item, selectedShow, }) => (
   <Link
     onClick={scrollToEpisodePage}
     className="episode-list-link"
-    to={`/episodes/${item.slug}`}
+    to={`/shows/${selectedShow}/episodes/${item.slug}`}
   >
     <li
       className="episode-list-item"

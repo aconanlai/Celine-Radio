@@ -1,7 +1,9 @@
 import React from 'react';
 import { scrollToShowLinks } from '../../scrollerTo';
 
-const KeywordListItem = ({ keyword, selectKeyword, selectedKeyword, }) => (
+const KeywordListItem = ({
+  language, keyword, selectKeyword, selectedKeyword,
+}) => (
   <a
     onClick={() => { selectKeyword(keyword.id); scrollToShowLinks(); }}
     className="keyword-list-link"
@@ -9,7 +11,7 @@ const KeywordListItem = ({ keyword, selectKeyword, selectedKeyword, }) => (
     <li
       className={`keyword-list-item${selectedKeyword === keyword.id ? ' selected' : ''}`}
       dangerouslySetInnerHTML={{
-        __html: keyword.name,
+        __html: language === 'en' ? keyword.name : keyword.acf.french_title || keyword.name,
       }}
     />
   </a>

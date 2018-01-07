@@ -14,3 +14,12 @@
 .show-list-item {
   margin-bottom: 1.5em;
 }
+
+.browsing-keyword {
+  margin-bottom: 15px;
+}
+
+.keyword-name {
+  margin-left: 5px;
+  font-weight: 800;
+}

@@ -1,7 +1,7 @@
 import { apiPath } from '../../config';
 
 export default function reducer(state = {
-  keywords: [],
+  keywords: {},
   isFetching: true,
   selectedKeyword: null,
 }, action = {}) {
@@ -34,9 +34,15 @@ export const requestKeywords = () => {
 };
 
 export const receiveKeywords = (keywords) => {
+  const normalizedKeywords = keywords.reduce((acc, keyword) => {
+    return {
+      ...acc,
+      [keyword.id]: keyword,
+    };
+  }, {});
   return {
     type: 'RECEIVE_KEYWORDS',
-    keywords,
+    keywords: normalizedKeywords,
   };
 };
 
