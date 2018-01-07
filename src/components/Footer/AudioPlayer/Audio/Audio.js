@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import convertElapsedTime from '../../../../timeUtils';
+import { pauseAudio, } from '../../../../redux/modules/audio';
 import '../ProgressBar/ProgressBar.css';
 
 class Audio extends Component {
@@ -11,6 +12,7 @@ class Audio extends Component {
     }
   }
   componentDidUpdate(prevProps) {
+
     if (this.props.filePath !== prevProps.filePath) {
       this.audio.src = this.props.filePath;
       this.audio.play();
@@ -30,7 +32,6 @@ class Audio extends Component {
   }
 
   updateOn = () => {
-    const audioPlayer = document.getElementById('audio-podcast');
     const progressBar = document.getElementById('bar');
     const handle = document.getElementById('handle');
     const { currentTime, duration, } = this.audio;
@@ -39,16 +40,20 @@ class Audio extends Component {
     handle.style.width = `${currentSize}px`;
     progressBar.addEventListener(
       'click',
-      function clickedBar(e) {
-        if (!audioPlayer.ended) {
+      (e) => {
+        if (!this.audio.ended) {
           const mouseX = e.pageX - progressBar.offsetLeft;
-          const newTime = (mouseX * audioPlayer.duration) / sizeOfBar;
-          audioPlayer.currentTime = newTime;
+          const newTime = (mouseX * this.audio.duration) / sizeOfBar;
+          this.audio.currentTime = newTime;
           handle.style.width = `${mouseX}px`;
         }
       },
       false
     );
+    if (this.audio.ended) {
+      this.props.pauseAudio();
+      this.audio.currentTime = 0;
+    }
     document.getElementById('current-time').innerHTML = convertElapsedTime(currentTime);
   };
   render() {
@@ -73,4 +78,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Audio);
+export default connect(mapStateToProps, { pauseAudio, })(Audio);
