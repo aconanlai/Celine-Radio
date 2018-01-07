@@ -51,6 +51,7 @@ class Audio extends Component {
     const currentSize = parseInt(currentTime * (sizeOfBar / duration), 10);
     this.handle.style.width = `${currentSize}px`;
     if (this.audio.ended) {
+      this.audio.currentTime = 0;
       this.props.pauseAudio();
     }
     document.getElementById('current-time').innerHTML = convertElapsedTime(currentTime);
