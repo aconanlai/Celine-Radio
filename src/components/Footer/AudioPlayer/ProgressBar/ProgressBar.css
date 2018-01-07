@@ -1,14 +1,12 @@
-
-
 #progress {
   background: rgba(43, 0, 0, 0.3);
-  width:200px;
+  flex-grow: 1;
   height: 10px;
   cursor: pointer;
 }
 
 #progress > #bar {
-  width: 200px;
+  width: 100%;
 }
 
 #progress > #bar > div {
@@ -17,8 +15,8 @@
   background: white;
 }
 
-#time {
-  width: 100px;
-  color: rgb(13, 5, 5);
-  font-size: 12px;
+@media screen and (max-width: 750px) and (orientation: portrait) {
+  #progress {
+    display: none;
+  }
 }

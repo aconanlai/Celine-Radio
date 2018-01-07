@@ -8,9 +8,10 @@
 .panel-container {
   display: flex;
   flex-grow: 1;
+  height: 100%;
 }
 
-@media screen  and (max-width:600px) {
+@media screen and (max-width: 750px) {
   .app {
     height: 100%;
     width: 100%;    
@@ -25,6 +26,8 @@
   }
 
   .footer {
-    height: 130px;
+    height: 40px;
+    position: fixed;
+    bottom: 0px;
   }  
 }

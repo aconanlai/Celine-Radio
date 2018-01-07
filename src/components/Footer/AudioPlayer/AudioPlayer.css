@@ -1,15 +1,14 @@
 .audio-player {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  align-items: center;
   height: 25px;
   margin: 4px;
   color: black;
   flex-grow: 1;
   background-color: #f6989d;
 }
-.controls {
-  display: flex;
-  width: 80px;
-  cursor: pointer;
+
+.hide {
+  opacity: 0;
+  z-index: -9;
 }

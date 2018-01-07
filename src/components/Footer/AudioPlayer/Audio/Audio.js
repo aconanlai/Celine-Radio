@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import convertElapsedTime from '../../../../timeUtils';
-import { pauseAudio, } from '../../../../redux/modules/audio';
+import { pauseAudio } from '../../../../redux/modules/audio';
 import '../ProgressBar/ProgressBar.css';
 
 class Audio extends Component {
@@ -10,13 +10,28 @@ class Audio extends Component {
       this.audio.src = this.props.filePath;
       this.audio.play();
     }
+    this.handle = document.getElementById('handle');
+    this.progressBar = document.getElementById('bar');
+    this.progressBar.addEventListener(
+      'click',
+      (e) => {
+        if (!this.audio.ended) {
+          const sizeOfBar = this.progressBar.getBoundingClientRect().width;
+          const mouseX = e.pageX - this.progressBar.offsetLeft;
+          const newTime = (mouseX * this.audio.duration) / sizeOfBar;
+          this.audio.currentTime = newTime;
+          this.handle.style.width = `${mouseX}px`;
+        }
+      },
+      false
+    );
   }
-  componentDidUpdate(prevProps) {
 
+  componentDidUpdate(prevProps) {
     if (this.props.filePath !== prevProps.filePath) {
       this.audio.src = this.props.filePath;
-      this.audio.play();
       this.getAudioFullDuration();
+      this.audio.play();
     }
     if (this.props.isPlaying !== prevProps.isPlaying) {
       this.props.isPlaying ? this.audio.play() : this.audio.pause();
@@ -24,38 +39,23 @@ class Audio extends Component {
   }
 
   getAudioFullDuration = () => {
-    const audioPlayer = document.getElementById('audio-podcast');
-    audioPlayer.onloadedmetadata = function setDurationTime() {
-      const { duration, } = audioPlayer;
+    this.audio.onloadedmetadata = () => {
+      const { duration, } = this.audio;
       document.getElementById('full-duration').innerHTML = convertElapsedTime(duration);
     };
   }
 
   updateOn = () => {
-    const progressBar = document.getElementById('bar');
-    const handle = document.getElementById('handle');
     const { currentTime, duration, } = this.audio;
-    const sizeOfBar = 200; // Still Working on a solution to scale to moblie 
+    const sizeOfBar = this.progressBar.getBoundingClientRect().width;
     const currentSize = parseInt(currentTime * (sizeOfBar / duration), 10);
-    handle.style.width = `${currentSize}px`;
-    progressBar.addEventListener(
-      'click',
-      (e) => {
-        if (!this.audio.ended) {
-          const mouseX = e.pageX - progressBar.offsetLeft;
-          const newTime = (mouseX * this.audio.duration) / sizeOfBar;
-          this.audio.currentTime = newTime;
-          handle.style.width = `${mouseX}px`;
-        }
-      },
-      false
-    );
+    this.handle.style.width = `${currentSize}px`;
     if (this.audio.ended) {
       this.props.pauseAudio();
-      this.audio.currentTime = 0;
     }
     document.getElementById('current-time').innerHTML = convertElapsedTime(currentTime);
   };
+
   render() {
     return (
       <div>
