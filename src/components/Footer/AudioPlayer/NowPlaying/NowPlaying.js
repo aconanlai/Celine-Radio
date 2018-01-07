@@ -4,9 +4,7 @@ import './NowPlaying.css';
 const NowPlaying = (props) => {
   return (
     <div className="now-playing">
-      <div>
-        Now Playing: {props.title}
-      </div>
+      {props.title}
     </div>
   );
 };
