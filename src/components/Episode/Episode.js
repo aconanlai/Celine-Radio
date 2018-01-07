@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Episode.css';
+import { scrollToAudioPlayer } from '../../scrollerTo';
 
 const Loading = () => (
   <div>Loading...</div>
@@ -38,7 +39,8 @@ const EpisodeDisplay = (props) => {
       <div>
         <span
           className="play-episode-link"
-          onClick={() => props.loadNewFile(props.acf.audio_link, props.title.rendered)}
+          onClick={
+            () => { props.loadNewFile(props.acf.audio_link, props.title.rendered); scrollToAudioPlayer(); }}
         >
           PLAY
         </span>

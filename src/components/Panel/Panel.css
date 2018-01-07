@@ -1,7 +1,9 @@
-.panel {
+ .panel { 
   flex: 1;
   border-right: 0.1px #959596 solid;
+  height: 100%;
   padding: 20px;
   overflow-y: auto;
-  background-color: #f6989d
+  background-color: #f6989d;
 }
+
