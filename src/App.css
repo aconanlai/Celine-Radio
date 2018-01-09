@@ -11,10 +11,10 @@
   height: 100%;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 768px) {
   .app {
     height: 100%;
-    width: 100%;    
+    width: 100%;
   }
 
   .panel-container {
@@ -29,5 +29,37 @@
     height: 40px;
     position: fixed;
     bottom: 0px;
-  }  
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .panel-container {
+    min-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .panel-container  > div {
+    display: flex;
+    flex-basis: calc(50% - 40px);
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .panel-container  > div > div {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .footer {
+    height: 40px;
+    position: fixed;
+    bottom: 0px;
+  }
+  
+  .panel {
+    border-bottom: 0.1px #959596 solid;
+  }
 }
