@@ -20,16 +20,7 @@
   .panel-container {
     flex-direction: column;
   }
-
-  .panel {
-    min-height: 100vh;
-  }
-
-  .footer {
-    height: 40px;
-    position: fixed;
-    bottom: 0px;
-  }
+  
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
@@ -46,14 +37,4 @@
     justify-content: center;  
   }
 
-  .footer {
-    height: 40px;
-    position: fixed;
-    bottom: 0px;
-  }
-
-  .panel {
-    border-bottom: 1px #959596 solid;
-    height: 50%;
-  }
 }
