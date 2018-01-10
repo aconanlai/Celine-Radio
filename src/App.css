@@ -40,14 +40,14 @@
     flex-direction: row;
   }
 
-  .panel-container  > div {
+  .panel-container > div {
     display: flex;
     flex-basis: calc(50% - 40px);
     justify-content: center;
     flex-direction: column;
   }
 
-  .panel-container  > div > div {
+  .panel-container > div > div {
     display: flex;
     justify-content: center;
     flex-direction: row;
