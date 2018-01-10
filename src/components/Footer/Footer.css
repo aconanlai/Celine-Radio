@@ -11,11 +11,6 @@
 @media screen and (max-width: 767px) {
   .footer {
     bottom: 0px;
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  .footer {
-    bottom: 0px;
+    position: fixed;
   }
 }
