@@ -1,5 +1,4 @@
 export const loadState = () => {
-  console.log('loading state');
   try {
     const serializedState = localStorage.getItem('celineradioredux');
     if (serializedState === null) {
@@ -12,7 +11,6 @@ export const loadState = () => {
 };
 
 export const saveState = (state) => {
-  console.log('saving state');
   try {
     const serializedState = JSON.stringify(state);
     localStorage.setItem('celineradioredux', serializedState);
