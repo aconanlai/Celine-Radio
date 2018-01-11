@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Episode.css';
-import { scrollToAudioPlayer } from '../../utils/scrollerTo';
+import { scrollToEpisodeList } from '../../utils/scrollerTo';
 
 const Loading = () => (
   <div>Loading...</div>
@@ -22,6 +22,7 @@ const EpisodeDisplay = (props) => {
       <Link
         className="episode-breadcrumb-link"
         to={`/shows/${props.selectedShowSlug}`}
+        onClick={scrollToEpisodeList}
       >
         {props.selectedShowName}
       </Link>
@@ -39,7 +40,7 @@ const EpisodeDisplay = (props) => {
         <span
           className="play-episode-link"
           onClick={
-            () => { props.loadNewFile(props.acf.audio_link, props.title.rendered); scrollToAudioPlayer(); }}
+            () => { props.loadNewFile(props.acf.audio_link, props.title.rendered); }}
         >
           PLAY
         </span>
