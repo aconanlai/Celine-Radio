@@ -1,35 +1,53 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createSelector } from 'reselect';
+import ListLoading from './ListLoading';
 import KeywordList from './KeywordList';
 import { fetchKeywords, selectKeyword } from '../../redux/modules/keywords';
 
 class KeywordListContainer extends Component {
-  async componentDidMount() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      timeMounted: new Date().getTime(),
+      completedLoading: false,
+    };
+    this.completeLoading = this.completeLoading.bind(this);
+  }
+  componentDidMount() {
+    if (this.props.keywordsArray.length > 0) {
+      this.completeLoading();
+    }
     this.props.fetchKeywords();
   }
 
+  componentDidUpdate(prevProps) {
+    if ((this.props.keywordsArray !== prevProps.keywordsArray)
+        && this.props.keywordsArray.length > 0) {
+      const now = new Date().getTime();
+      const diff = now - this.state.timeMounted - 1000;
+      if (diff >= 0) {
+        this.completeLoading();
+      } else {
+        setTimeout(this.completeLoading, Math.abs(diff));
+      }
+    }
+  }
+
+  completeLoading() {
+    this.setState({
+      completedLoading: true,
+    });
+  }
+
   render() {
-    return (!this.props.isFetching
-        && <KeywordList {...this.props} />
-    );
+    return this.state.completedLoading ? <KeywordList {...this.props} /> : <ListLoading />;
   }
 }
-
-const getKeywords = state => state._keywords.keywords;
-
-const getKeywordsArray = createSelector(
-  [getKeywords],
-  (keywords) => {
-    return Object.values(keywords);
-  }
-);
 
 const mapStateToProps = (state) => {
   return {
     language: state._language,
-    keywords: getKeywordsArray(state),
-    isFetching: state._keywords.isFetching,
+    keywordsArray: state._keywords.keywordsArray,
     selectedKeyword: state._keywords.selectedKeyword,
   };
 };

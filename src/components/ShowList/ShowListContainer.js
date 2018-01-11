@@ -6,7 +6,7 @@ import { fetchShows } from '../../redux/modules/shows';
 import { getShowSlugFromPath } from '../../utils/pathSplitter';
 
 class ShowListContainer extends Component {
-  async componentDidMount() {
+  componentDidMount() {
     this.props.fetchShows();
   }
 

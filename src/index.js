@@ -16,6 +16,7 @@ if (!persistedState._language && navigator.language.includes('fr')) {
 }
 
 const store = createStore(persistedState);
+// const store = createStore();
 
 const debouncedSubscriber = debounce(() => {
   saveState({
@@ -26,6 +27,7 @@ const debouncedSubscriber = debounce(() => {
     },
     _keywords: {
       keywords: store.getState()._keywords.keywords,
+      keywordsArray: store.getState()._keywords.keywordsArray,
     },
   });
 }, 1000);

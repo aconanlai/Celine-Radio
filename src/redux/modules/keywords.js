@@ -2,20 +2,16 @@ import { apiPath } from '../../config';
 
 export default function reducer(state = {
   keywords: {},
-  isFetching: true,
+  keywordsArray: [],
   selectedKeyword: null,
 }, action = {}) {
   switch (action.type) {
-    case 'REQUEST_KEYWORDS':
-      return {
-        ...state,
-        isFetching: true,
-      };
     case 'RECEIVE_KEYWORDS':
       return {
         ...state,
         isFetching: false,
         keywords: action.keywords,
+        keywordsArray: action.keywordsArray,
       };
     case 'SELECT_KEYWORD':
       return {
@@ -27,12 +23,6 @@ export default function reducer(state = {
   }
 }
 
-export const requestKeywords = () => {
-  return {
-    type: 'REQUEST_KEYWORDS',
-  };
-};
-
 export const receiveKeywords = (keywords) => {
   const normalizedKeywords = keywords.reduce((acc, keyword) => {
     return {
@@ -43,6 +33,7 @@ export const receiveKeywords = (keywords) => {
   return {
     type: 'RECEIVE_KEYWORDS',
     keywords: normalizedKeywords,
+    keywordsArray: keywords,
   };
 };
 
@@ -50,7 +41,6 @@ export const fetchKeywords = () => {
   // TODO: create an http wrapper so all actions can share
   // error handling
   return (dispatch) => {
-    dispatch(requestKeywords());
     return fetch(`${apiPath}keyword`).then((response) => {
       return response.json();
     }).then((json) => {

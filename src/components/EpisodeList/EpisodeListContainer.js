@@ -20,11 +20,11 @@ class EpisodeListContainer extends Component {
     this.findShowData = this.findShowData.bind(this);
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     this.findAndLoadData();
   }
 
-  async componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps) {
     if (prevProps.match.url !== this.props.match.url) {
       this.findAndLoadData();
     }

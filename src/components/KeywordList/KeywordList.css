@@ -4,7 +4,7 @@
 
 .keyword-list-item {
   display: inline-block;
-  margin-bottom: 1.5em;
+  margin-bottom: 1.35em;
   color: blue;
 }
 
@@ -16,4 +16,22 @@
 
 .keyword-list-item.selected {
   text-decoration: underline;
+}
+
+.loading-box-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+@keyframes ants { to { background-position: 100% 100% } }
+
+.loading-box {
+  padding: 0.5em;
+  margin-bottom: 1em;
+	border: 1px solid transparent;
+	background: linear-gradient(#f6989d, #f6989d) padding-box,
+	            repeating-linear-gradient(-45deg, blue 0, blue 25%, transparent 0, transparent 50%) 0 / .6em .6em;
+	animation: ants 12s linear infinite;
+	max-width: 20em;
 }

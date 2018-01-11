@@ -5,7 +5,7 @@ import './KeywordList.css';
 const KeywordList = props => (
   <div className="list">
     <ul>
-      {props.keywords.map((keyword) => {
+      {props.keywordsArray.map((keyword) => {
         return (
           <KeywordListItem
             key={keyword.id}
