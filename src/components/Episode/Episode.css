@@ -11,6 +11,20 @@
   padding-bottom: 25px;
 }
 
+.episode-breadcrumb-link {
+  text-align: left;
+  text-decoration: none;
+}
+
+.episode-breadcrumb-link:visited {
+  color: blue;
+}
+
+.episode-title {
+  text-align: left;
+  font-size: 1.5em;
+}
+
 .episode-image {
   align-self: center;
   width: 80%;
@@ -23,7 +37,8 @@
 
 .play-episode-link:hover {
   cursor: pointer;
-  font-style: italic;
+  color: black;
+  text-decoration: underline;
 }
 
 .episode-description {

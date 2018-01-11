@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 import ShowList from './ShowList';
 import { fetchShows } from '../../redux/modules/shows';
+import { getShowSlugFromPath } from '../../utils/pathSplitter';
 
 class ShowListContainer extends Component {
   async componentDidMount() {
@@ -10,8 +11,9 @@ class ShowListContainer extends Component {
   }
 
   render() {
+    const viewedShowSlug = getShowSlugFromPath(this.props.match.url);
     return (!this.props.isFetching
-        && <ShowList {...this.props} />
+        && <ShowList {...this.props} viewedShowSlug={viewedShowSlug} />
     );
   }
 }

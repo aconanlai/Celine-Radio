@@ -3,19 +3,13 @@ import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 import { fetchEpisodes } from '../../redux/modules/episodes';
 import { selectShow } from '../../redux/modules/shows';
+import { selectKeyword } from '../../redux/modules/keywords';
+import { getShowSlugFromPath } from '../../utils/pathSplitter';
 import EpisodeList from './EpisodeList';
 
 const NotOnPageYet = () => (
   <div>no show selected yet</div>
 );
-
-const getSlugFromPath = (path) => {
-  const parts = path.split('/');
-  if (parts[1] === 'shows') {
-    return parts[2];
-  }
-  return false;
-};
 
 class EpisodeListContainer extends Component {
   constructor(props) {
@@ -37,7 +31,7 @@ class EpisodeListContainer extends Component {
   }
 
   findAndLoadData() {
-    const show = getSlugFromPath(this.props.match.url);
+    const show = getShowSlugFromPath(this.props.match.url);
     if (show && show !== this.props.selectedShow) {
       this.props.selectShow(show);
       this.props.fetchEpisodes(show);
@@ -87,4 +81,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchEpisodes, selectShow, })(EpisodeListContainer);
+export default connect(
+  mapStateToProps,
+  { fetchEpisodes, selectShow, selectKeyword, }
+)(EpisodeListContainer);

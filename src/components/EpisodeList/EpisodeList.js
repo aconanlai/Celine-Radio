@@ -1,5 +1,7 @@
 import React from 'react';
 import EpisodeListItem from './EpisodeListItem';
+import { scrollToShowLinks } from '../../utils/scrollerTo';
+
 
 const KeywordsDisplay = (props) => {
   return (
@@ -8,9 +10,13 @@ const KeywordsDisplay = (props) => {
         props.acf.related_keywords.map((keyword) => {
           const keywordProperties = props.keywords[keyword];
           return (
-            <li key={keywordProperties.slug}>
+            <a
+              onClick={() => { props.selectKeyword(keyword); scrollToShowLinks(); }}
+              key={keywordProperties.slug}
+              className="show-keyword"
+            >
               {props.language === 'en' ? keywordProperties.name : keywordProperties.acf.french_title || keywordProperties.name}
-            </li>
+            </a>
           );
         })
       }
@@ -30,12 +36,14 @@ const EpisodeList = (props) => {
           __html: props.language === 'en' ? props.description : (props.acf && props.acf.french_description) || props.description,
         }}
       />
+      Keywords:
       {
         props.acf &&
         props.acf.related_keywords &&
         Object.keys(props.keywords).length > 0 &&
         <KeywordsDisplay {...props} />
       }
+      <h2 className="episodes-label">Episodes:</h2>
       <ul>
         {props.episodes.map((episode) => {
           return (<EpisodeListItem

@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { scrollToEpisodeList } from '../../utils/scrollerTo';
 
-const ShowListItem = ({ show, }) => (
+const ShowListItem = ({ show, viewedShowSlug, }) => (
   <Link
     onClick={scrollToEpisodeList}
-    className="show-list-link"
+    className={`show-list-link${viewedShowSlug === show.slug ? ' selected' : ''}`}
     to={`/shows/${show.slug}`}
   >
     <li
@@ -18,3 +18,5 @@ const ShowListItem = ({ show, }) => (
 );
 
 export default ShowListItem;
+
+

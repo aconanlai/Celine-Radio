@@ -20,11 +20,10 @@ const EpisodeDisplay = (props) => {
   return (
     <div className="episode-page">
       <Link
+        className="episode-breadcrumb-link"
         to={`/shows/${props.selectedShowSlug}`}
       >
-        <h2>
-          {props.selectedShowName}
-        </h2>
+        {props.selectedShowName}
       </Link>
       <h1
         className="episode-title"

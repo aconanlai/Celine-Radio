@@ -17,7 +17,9 @@ const App = () => {
         </Panel>
         <Panel panelClassName="show-list">
           <div>
-            <ShowListContainer />
+            <Switch>
+              <Route path="*" component={ShowListContainer} />
+            </Switch>
           </div>
         </Panel>
         <Panel panelClassName="episode-list">

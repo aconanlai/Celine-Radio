@@ -5,9 +5,7 @@ import './ShowList.css';
 const ShowList = (props) => {
   let keywordName;
   try {
-    const foundKeyword = props.keywords.find((keyword) => {
-      return keyword.id === props.selectedKeyword;
-    });
+    const foundKeyword = props.keywords[props.selectedKeyword];
     keywordName = props.language === 'en' ? foundKeyword.name : foundKeyword.acf.french_title || foundKeyword.name;
   } catch (e) {
     keywordName = null;
@@ -28,6 +26,7 @@ const ShowList = (props) => {
             <ShowListItem
               key={show.id}
               show={show}
+              viewedShowSlug={props.viewedShowSlug}
             />);
         })}
       </ul>

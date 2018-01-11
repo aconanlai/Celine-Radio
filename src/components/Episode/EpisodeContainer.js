@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Episode from './Episode';
 import { apiPath } from '../../config';
+import { getShowSlugFromPath, getEpisodeSlugFromPath } from '../../utils/pathSplitter';
 
 import {
   loadNewFile
@@ -10,14 +11,6 @@ import {
 const NotOnPageYet = () => (
   <div>no episode selected yet</div>
 );
-
-const getSlugFromPath = (path) => {
-  const parts = path.split('/');
-  if (parts[3] === 'episodes') {
-    return parts[4];
-  }
-  return false;
-};
 
 class EpisodeContainer extends Component {
   constructor(props) {
@@ -43,7 +36,7 @@ class EpisodeContainer extends Component {
   }
 
   findAndLoadData() {
-    const slug = getSlugFromPath(this.props.match.url);
+    const slug = getEpisodeSlugFromPath(this.props.match.url);
     if (slug) {
       this.findShowName();
       this.fetchShow(slug);
@@ -57,12 +50,13 @@ class EpisodeContainer extends Component {
       setTimeout(this.findShowName, 100);
       return;
     }
+    const selectedShow = getShowSlugFromPath(this.props.match.url);
     const selectedShowName = this.props.shows.find((show) => {
-      return show.slug === this.props.selectedShow;
+      return show.slug === selectedShow;
     }).name;
     this.setState({
       selectedShowName,
-      selectedShowSlug: this.props.selectedShow,
+      selectedShowSlug: selectedShow,
     });
   }
 
@@ -97,7 +91,6 @@ const mapStateToProps = (state) => {
   return {
     language: state._language,
     shows: state._shows.shows,
-    selectedShow: state._shows.selectedShow,
   };
 };
 
