@@ -21,8 +21,12 @@ const debouncedSubscriber = debounce(() => {
   saveState({
     _cart: store.getState()._cart,
     _language: store.getState()._language,
-    _shows: store.getState()._shows,
-    _keywords: store.getState().keywords,
+    _shows: {
+      shows: store.getState()._shows.shows,
+    },
+    _keywords: {
+      keywords: store.getState()._keywords.keywords,
+    },
   });
 }, 1000);
 

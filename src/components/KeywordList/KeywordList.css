@@ -15,5 +15,5 @@
 }
 
 .keyword-list-item.selected {
-  background: yellow;
+  text-decoration: underline;
 }
