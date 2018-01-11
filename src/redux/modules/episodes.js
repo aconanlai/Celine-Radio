@@ -42,13 +42,15 @@ export const fetchEpisodes = (show) => {
   // TODO: create an http wrapper so all actions can share
   // error handling
 
-  // TODO: check for cached items
-  return (dispatch) => {
-    dispatch(requestEpisodes());
-    return fetch(`${apiPath}episodes?filter[taxonomy]=show&filter[term]=${show}`).then((response) => {
-      return response.json();
-    }).then((json) => {
-      dispatch(receiveEpisodes(show, json));
-    });
+  return (dispatch, getState) => {
+    if (!getState()._episodes.shows[show]) {
+      dispatch(requestEpisodes());
+      return fetch(`${apiPath}episodes?filter[taxonomy]=show&filter[term]=${show}`).then((response) => {
+        return response.json();
+      }).then((json) => {
+        dispatch(receiveEpisodes(show, json));
+      });
+    }
+    return null;
   };
 };
