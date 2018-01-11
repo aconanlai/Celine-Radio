@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import convertElapsedTime from '../../../../timeUtils';
+import convertElapsedTime from '../../../../utils/timeUtils';
 import { pauseAudio } from '../../../../redux/modules/audio';
 import '../ProgressBar/ProgressBar.css';
 

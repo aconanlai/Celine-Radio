@@ -6,9 +6,10 @@ const KeywordsDisplay = (props) => {
     <div className="show-keywords">
       {
         props.acf.related_keywords.map((keyword) => {
+          const keywordProperties = props.keywords[keyword];
           return (
-            <li>
-              {props.language === 'en' ? props.keywords[keyword].name : props.keywords[keyword].acf.french_title || props.keywords[keyword].name}
+            <li key={keywordProperties.slug}>
+              {props.language === 'en' ? keywordProperties.name : keywordProperties.acf.french_title || keywordProperties.name}
             </li>
           );
         })
@@ -26,7 +27,7 @@ const EpisodeList = (props) => {
       <div
         className="show-description"
         dangerouslySetInnerHTML={{
-          __html: props.language === 'en' ? props.description : props.acf.french_description || props.description,
+          __html: props.language === 'en' ? props.description : (props.acf && props.acf.french_description) || props.description,
         }}
       />
       {

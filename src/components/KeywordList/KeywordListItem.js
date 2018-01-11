@@ -1,5 +1,5 @@
 import React from 'react';
-import { scrollToShowLinks } from '../../scrollerTo';
+import { scrollToShowLinks } from '../../utils/scrollerTo';
 
 const KeywordListItem = ({
   language, keyword, selectKeyword, selectedKeyword,

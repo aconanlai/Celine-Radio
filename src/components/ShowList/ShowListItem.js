@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { scrollToEpisodeList } from '../../scrollerTo';
+import { scrollToEpisodeList } from '../../utils/scrollerTo';
 
 const ShowListItem = ({ show, }) => (
   <Link

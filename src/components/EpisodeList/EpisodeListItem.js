@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './EpisodeList.css';
-import { scrollToEpisodePage } from '../../scrollerTo';
+import { scrollToEpisodePage } from '../../utils/scrollerTo';
 
 const EpisodeListItem = ({ item, selectedShow, }) => (
   <Link

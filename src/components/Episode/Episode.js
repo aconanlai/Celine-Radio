@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Episode.css';
-import { scrollToAudioPlayer } from '../../scrollerTo';
+import { scrollToAudioPlayer } from '../../utils/scrollerTo';
 
 const Loading = () => (
   <div>Loading...</div>
