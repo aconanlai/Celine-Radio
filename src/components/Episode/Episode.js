@@ -36,15 +36,18 @@ const EpisodeDisplay = (props) => {
         src={image}
         alt={props.title.rendered}
       />}
-      <div>
-        <span
-          className="play-episode-link"
-          onClick={
-            () => { props.loadNewFile(props.acf.audio_link, props.title.rendered); }}
-        >
-          PLAY
-        </span>
-      </div>
+      {
+        props.acf.audio_link &&
+        (<div>
+          <span
+            className="play-episode-link"
+            onClick={
+              () => { props.loadNewFile(props.acf.audio_link, props.title.rendered); }}
+          >
+            PLAY
+          </span>
+        </div>)
+      }
       <div
         className="episode-description"
         dangerouslySetInnerHTML={{

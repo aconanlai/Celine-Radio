@@ -28,7 +28,7 @@
 
 .loading-box {
   padding: 0.5em;
-  margin-bottom: 1em;
+  margin-bottom: 1.25em;
 	border: 1px solid transparent;
 	background: linear-gradient(#f6989d, #f6989d) padding-box,
 	            repeating-linear-gradient(-45deg, blue 0, blue 25%, transparent 0, transparent 50%) 0 / .6em .6em;

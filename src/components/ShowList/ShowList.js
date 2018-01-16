@@ -14,7 +14,7 @@ const ShowList = (props) => {
     <div>
       {keywordName &&
         <div className="browsing-keyword">
-          Browsing:
+          &gt;
         <span className="keyword-name">
           {keywordName}
         </span>

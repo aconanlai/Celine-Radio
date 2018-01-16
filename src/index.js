@@ -15,8 +15,8 @@ if (!persistedState._language && navigator.language.includes('fr')) {
   persistedState._language = 'fr';
 }
 
-const store = createStore(persistedState);
-// const store = createStore();
+// const store = createStore(persistedState);
+const store = createStore();
 
 const debouncedSubscriber = debounce(() => {
   saveState({
