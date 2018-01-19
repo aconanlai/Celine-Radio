@@ -57,3 +57,21 @@ table {
 body {
   font-family: Helvetica, Arial, sans-serif;
 }
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px #F5F5F5;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #f6989d;
+	border: 1px solid #959596;
+}

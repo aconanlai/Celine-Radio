@@ -40,15 +40,13 @@ class EpisodeListContainer extends Component {
   }
 
   findShowData(showSlug) {
-    const isShowsFound = this.props.shows.length > 0;
+    const isShowsFound = this.props.showsArray.length > 0;
     if (!isShowsFound) {
       // wait until shows have arrived from server
       setTimeout(() => this.findShowData(showSlug), 100);
       return;
     }
-    const data = this.props.shows.find((show) => {
-      return show.slug === showSlug;
-    });
+    const data = this.props.shows[showSlug];
     this.setState({
       data,
     });
@@ -75,6 +73,7 @@ const mapStateToProps = (state) => {
     episodes: getSelectedShowEpisodes(state),
     language: state._language,
     shows: state._shows.shows,
+    showsArray: state._shows.showsArray,
     keywords: state._keywords.keywords,
     selectedShow: state._shows.selectedShow,
     isFetching: state._episodes.isFetching,

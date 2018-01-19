@@ -5,12 +5,14 @@ import KeywordListContainer from './components/KeywordList/KeywordListContainer'
 import ShowListContainer from './components/ShowList/ShowListContainer';
 import EpisodeListContainer from './components/EpisodeList/EpisodeListContainer';
 import EpisodeContainer from './components/Episode/EpisodeContainer';
+import TopBar from './components/TopBar/TopBar';
 import Footer from './components/Footer/Footer';
 import './App.css';
 
 const App = () => {
   return (
     <div className="app">
+      <TopBar />
       <div className="panel-container">
         <Panel panelClassName="keyword-list">
           <KeywordListContainer />

@@ -1,14 +1,33 @@
+import scrollIntoView from 'scroll-into-view';
+
 const scrollToFactory = (className) => {
   return () => {
-    const classToScrollTo = document.querySelectorAll(className)[0];
-    classToScrollTo.scrollIntoView();
+    const element = document.querySelectorAll(`.${className}`)[0];
+    // classToScrollTo.scrollIntoView();
+    scrollIntoView(element, {
+      time: 500,
+      ease: (value) => {
+        return 1 - Math.pow(1 - value, value / 5);
+      },
+    });
   };
 };
 
-export const scrollToShowLinks = scrollToFactory('.show-list');
+export const scrollTo = (className) => {
+  const element = document.querySelectorAll(`.${className}`)[0];
+  // classToScrollTo.scrollIntoView();
+  scrollIntoView(element, {
+    time: 500,
+    ease: (value) => {
+      return 1 - Math.pow(1 - value, value / 5);
+    },
+  });
+};
 
-export const scrollToAudioPlayer = scrollToFactory('.footer');
+export const scrollToShowLinks = scrollToFactory('show-list');
 
-export const scrollToEpisodeList = scrollToFactory('.episode-list');
+export const scrollToAudioPlayer = scrollToFactory('footer');
 
-export const scrollToEpisodePage = scrollToFactory('.episode');
+export const scrollToEpisodeList = scrollToFactory('episode-list');
+
+export const scrollToEpisodePage = scrollToFactory('episode');

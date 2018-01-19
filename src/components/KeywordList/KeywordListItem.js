@@ -4,17 +4,23 @@ import { scrollToShowLinks } from '../../utils/scrollerTo';
 const KeywordListItem = ({
   language, keyword, selectKeyword, selectedKeyword,
 }) => (
-  <a
-    onClick={() => { selectKeyword(keyword.id); scrollToShowLinks(); }}
-    className="keyword-list-link"
+  <li
+    className={`keyword-list-item${selectedKeyword === keyword.id ? ' selected' : ''}`}
   >
-    <li
-      className={`keyword-list-item${selectedKeyword === keyword.id ? ' selected' : ''}`}
-      dangerouslySetInnerHTML={{
-        __html: language === 'en' ? keyword.name : keyword.acf.french_title || keyword.name,
-      }}
-    />
-  </a>
+    <a
+      onClick={() => { selectKeyword(keyword.id); scrollToShowLinks(); }}
+      onKeyPress={() => { selectKeyword(keyword.id); scrollToShowLinks(); }}
+      role="link"
+      className="keyword-list-link"
+      tabIndex={0}
+    >
+      <span
+        dangerouslySetInnerHTML={{
+          __html: language === 'en' ? keyword.name : keyword.acf.french_title || keyword.name,
+        }}
+      />
+    </a>
+  </li>
 );
 
 export default KeywordListItem;

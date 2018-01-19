@@ -1,6 +1,21 @@
+.show-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 .show-name {
   margin-bottom: 30px;
   font-size: 1.5em;
+}
+
+.show-image-container {
+  margin-bottom: 20px;
+  width: 80%;
+}
+
+.show-image {
+  width: 100%;
 }
 
 .show-description {

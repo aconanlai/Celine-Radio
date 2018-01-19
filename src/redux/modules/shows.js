@@ -1,7 +1,8 @@
 import { apiPath } from '../../config';
 
 export default function reducer(state = {
-  shows: [],
+  shows: {},
+  showsArray: [],
   selectedShow: null,
   isFetching: true,
 }, action = {}) {
@@ -16,6 +17,7 @@ export default function reducer(state = {
         ...state,
         isFetching: false,
         shows: action.shows,
+        showsArray: action.showsArray,
       };
     case 'SELECT_SHOW':
       return {
@@ -34,9 +36,16 @@ export const requestShows = () => {
 };
 
 export const receiveShows = (shows) => {
+  const normalizedShows = shows.reduce((acc, show) => {
+    return {
+      ...acc,
+      [show.slug]: show,
+    };
+  }, {});
   return {
     type: 'RECEIVE_SHOWS',
-    shows,
+    shows: normalizedShows,
+    showsArray: shows,
   };
 };
 
@@ -45,7 +54,7 @@ export const fetchShows = () => {
   // error handling
   return (dispatch) => {
     dispatch(requestShows());
-    return fetch(`${apiPath}show`).then((response) => {
+    return fetch(`${apiPath}show?per_page=100`).then((response) => {
       return response.json();
     }).then((json) => {
       dispatch(receiveShows(json));

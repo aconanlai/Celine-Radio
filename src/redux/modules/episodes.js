@@ -45,7 +45,7 @@ export const fetchEpisodes = (show) => {
   return (dispatch, getState) => {
     if (!getState()._episodes.shows[show]) {
       dispatch(requestEpisodes());
-      return fetch(`${apiPath}episodes?filter[taxonomy]=show&filter[term]=${show}`).then((response) => {
+      return fetch(`${apiPath}episodes?filter[taxonomy]=show&filter[term]=${show}&per_page=100`).then((response) => {
         return response.json();
       }).then((json) => {
         dispatch(receiveEpisodes(show, json));

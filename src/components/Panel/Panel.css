@@ -1,6 +1,6 @@
  .panel { 
   flex: 1;
-  border-right: 0.1px #959596 solid;
+  border-right: 1px #959596 solid;
   height: 100%;
   padding: 100px 20px;
   overflow-y: auto;
@@ -11,6 +11,7 @@
 @media screen and (max-width: 767px) {
   .panel {
     min-height: 100vh;
+    border-bottom: 1px #959596 solid;
   }
 }
 

@@ -1,15 +1,13 @@
 .keyword-list-link {
-  display: block;
+  cursor: pointer;
 }
 
 .keyword-list-item {
-  display: inline-block;
   margin-bottom: 1.35em;
   color: blue;
 }
 
 .keyword-list-item:hover {
-  cursor: pointer;
   color: black;
   text-decoration: underline;
 }

@@ -44,16 +44,14 @@ class EpisodeContainer extends Component {
   }
 
   findShowName() {
-    const isShowsFound = this.props.shows.length > 0;
+    const isShowsFound = this.props.showsArray.length > 0;
     if (!isShowsFound) {
       // wait until shows have arrived from server
       setTimeout(this.findShowName, 100);
       return;
     }
     const selectedShow = getShowSlugFromPath(this.props.match.url);
-    const selectedShowName = this.props.shows.find((show) => {
-      return show.slug === selectedShow;
-    }).name;
+    const selectedShowName = this.props.shows[selectedShow].name;
     this.setState({
       selectedShowName,
       selectedShowSlug: selectedShow,
@@ -91,6 +89,7 @@ const mapStateToProps = (state) => {
   return {
     language: state._language,
     shows: state._shows.shows,
+    showsArray: state._shows.showsArray,
   };
 };
 

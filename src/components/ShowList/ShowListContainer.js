@@ -18,13 +18,13 @@ class ShowListContainer extends Component {
   }
 }
 
-const getShows = state => state._shows.shows;
+const getShowsArray = state => state._shows.showsArray;
 const getSelectedKeyword = state => state._keywords.selectedKeyword;
 
 const getVisibleShows = createSelector(
-  [getShows, getSelectedKeyword],
-  (shows, selectedKeyword) => {
-    return shows.filter((show) => {
+  [getShowsArray, getSelectedKeyword],
+  (showsArray, selectedKeyword) => {
+    return showsArray.filter((show) => {
       return show.acf.related_keywords.includes(selectedKeyword);
     });
   }

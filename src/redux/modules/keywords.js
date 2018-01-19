@@ -41,7 +41,7 @@ export const fetchKeywords = () => {
   // TODO: create an http wrapper so all actions can share
   // error handling
   return (dispatch) => {
-    return fetch(`${apiPath}keyword`).then((response) => {
+    return fetch(`${apiPath}keyword?per_page=100`).then((response) => {
       return response.json();
     }).then((json) => {
       dispatch(receiveKeywords(json));

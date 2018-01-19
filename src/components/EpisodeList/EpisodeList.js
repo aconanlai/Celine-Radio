@@ -2,6 +2,22 @@ import React from 'react';
 import EpisodeListItem from './EpisodeListItem';
 import { scrollToShowLinks } from '../../utils/scrollerTo';
 
+const checkIfImageExists = (data) => {
+  try {
+    const image = data.acf.show_image.sizes;
+    // const width = Math.min(400, image['medium_large-width']);
+    // const ratio = image['medium_large-width'] / image['medium_large-height'];
+    // const height = Math.floor(width * ratio);
+    return {
+      url: image.medium_large,
+      // width,
+      // height,
+      // ratio,
+    };
+  } catch (e) {
+    return false;
+  }
+};
 
 const KeywordsDisplay = (props) => {
   return (
@@ -25,11 +41,24 @@ const KeywordsDisplay = (props) => {
 };
 
 const EpisodeList = (props) => {
+  const image = checkIfImageExists(props);
   return (
-    <div>
+    <div className="show-container">
       <h1 className="show-name">
         {props.name}
       </h1>
+      {image &&
+        <div
+          className="show-image-container"
+          style={{
+          }}
+        >
+          <img
+            className="show-image"
+            src={image.url}
+            alt={props.name}
+          />
+        </div>}
       <div
         className="show-description"
         dangerouslySetInnerHTML={{

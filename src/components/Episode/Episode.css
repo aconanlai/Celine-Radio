@@ -28,6 +28,7 @@
 .episode-image {
   align-self: center;
   width: 80%;
+  max-width: 300px;
 }
 
 .play-episode-link {
