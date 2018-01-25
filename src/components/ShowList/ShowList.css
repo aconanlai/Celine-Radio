@@ -22,9 +22,11 @@
 
 .browsing-keyword {
   margin-bottom: 15px;
+  color: yellow;
 }
 
 .keyword-name {
   margin-left: 5px;
   font-weight: 800;
+  color: yellow;
 }

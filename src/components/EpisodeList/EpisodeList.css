@@ -9,7 +9,7 @@
   margin-bottom: 30px;
   font-size: 1.25em;
   color: yellow;
-  text-decoration: underline;
+  border-bottom: 2px solid yellow;
 }
 
 .show-image-container {
@@ -46,6 +46,10 @@
 .episode-list-link {
   color: white;
   text-decoration: none;
+}
+
+.episode-list-item {
+  text-align: center;
 }
 
 .episode-list-item:hover {

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { scrollTo } from '../../utils/scrollerTo';
+import debounce from '../../utils/debounce';
 import './TopBar.css';
 
 const NavItem = props => (
   <li
-    className={(props.inScope === props.id) ? 'nav-item selected' : 'nav-item'}
+    className={props.inScope ? 'nav-item selected' : 'nav-item'}
   >
     <a
       onClick={(e) => {
@@ -43,6 +44,26 @@ class TopBar extends Component {
       }],
       inScope: null,
     };
+    this.debouncedGetPositions = debounce(() => {
+      const items = [...this.state.items];
+      let inScope;
+      const itemsWithNewPositions = items.map((item) => {
+        const element = document.getElementsByClassName(item.className)[0];
+        const { top, } = element.getBoundingClientRect();
+        const halfHeight = window.innerHeight / 2;
+        if (top < halfHeight) {
+          inScope = item.id;
+        }
+        return {
+          ...item,
+          position: top,
+        };
+      });
+      this.setState({
+        items: itemsWithNewPositions,
+        inScope,
+      });
+    }, 100);
   }
 
   componentDidMount() {
@@ -52,7 +73,9 @@ class TopBar extends Component {
   }
 
   initializeListeners() {
-
+    this.debouncedGetPositions();
+    window.addEventListener('resize', this.debouncedGetPositions);
+    document.addEventListener('scroll', this.debouncedGetPositions);
   }
 
   render() {
@@ -63,7 +86,7 @@ class TopBar extends Component {
             return (
               <NavItem
                 {...item}
-                selecinScopeted={this.state.inScope}
+                inScope={this.state.inScope === item.id}
                 key={item.id}
               />
             );

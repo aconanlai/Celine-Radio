@@ -4,7 +4,6 @@
   align-items: center;
   text-align: center;
   color: white;
-  font-size: 0.9em;
 }
 
 .episode-page > * {
@@ -21,13 +20,13 @@
 }
 
 .episode-title {
-  text-align: left;
+  text-align: center;
   font-size: 1.5em;
 }
 
 .episode-image {
   align-self: center;
-  width: 80%;
+  width: 60%;
   max-width: 300px;
 }
 

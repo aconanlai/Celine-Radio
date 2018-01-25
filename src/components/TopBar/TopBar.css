@@ -15,18 +15,18 @@
 }
 
 .nav-item {
-  margin: 1em;
+  margin: 0.8em;
+  padding: 0.2em;
   color: white;
 }
 
 .nav-item:hover {
   cursor: pointer;
-  text-decoration: underline;
+  border-bottom: 2px solid yellow;
 }
 
 .nav-item.selected {
-  font-weight: 600;
-  text-decoration: underline;
+  border-bottom: 2px solid yellow;
 }
 
 @media screen and (max-width: 767px) {
