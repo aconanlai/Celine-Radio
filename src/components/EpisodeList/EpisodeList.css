@@ -1,17 +1,20 @@
 .show-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
+  color: white;
 }
 
 .show-name {
   margin-bottom: 30px;
-  font-size: 1.5em;
+  font-size: 1.25em;
+  color: yellow;
+  text-decoration: underline;
 }
 
 .show-image-container {
   margin-bottom: 20px;
-  width: 80%;
+  width: 60%;
 }
 
 .show-image {
@@ -20,6 +23,7 @@
 
 .show-description {
   margin-bottom: 30px;
+  text-align: center;
 }
 
 .show-keywords {
@@ -30,7 +34,7 @@
 .show-keyword {
   margin-top: 5px;
   margin-left: 8px;
-  color: blue;
+  color: white;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -40,16 +44,17 @@
 }
 
 .episode-list-link {
+  color: white;
   text-decoration: none;
 }
 
-.episode-list-link:hover {
-  color: black !important;
-  text-decoration: underline;
+.episode-list-item:hover {
+  color: white !important;
+  border-bottom: 2px solid yellow;
 }
 
 .episode-list-link:visited {
-  color: blue;
+  color: white;
 }
 
 .episode-list-item {

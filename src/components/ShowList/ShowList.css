@@ -1,18 +1,19 @@
 .show-list-link {
+  color: white;
   text-decoration: none;
 }
 
 .show-list-link:hover {
-  color: black !important;
-  text-decoration: underline;
+  color: white !important;
+  border-bottom: 2px solid yellow;
 }
 
 .selected {
-  text-decoration: underline;
+  border-bottom: 2px solid yellow;
 }
 
 .show-list-link:visited {
-  color: blue;
+  color: white;
 }
 
 .show-list-item {

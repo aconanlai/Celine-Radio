@@ -4,16 +4,11 @@
 
 .keyword-list-item {
   margin-bottom: 1.35em;
-  color: blue;
+  color: white;
 }
 
-.keyword-list-item:hover {
-  color: black;
-  text-decoration: underline;
-}
-
-.keyword-list-item.selected {
-  text-decoration: underline;
+.keyword-list-link:hover {
+  border-bottom: 2px solid yellow;
 }
 
 .loading-box-container {
@@ -29,7 +24,7 @@
   margin-bottom: 1.25em;
 	border: 1px solid transparent;
 	background: linear-gradient(#f6989d, #f6989d) padding-box,
-	            repeating-linear-gradient(-45deg, blue 0, blue 25%, transparent 0, transparent 50%) 0 / .6em .6em;
+	            repeating-linear-gradient(-45deg, white 0, white 25%, transparent 0, transparent 50%) 0 / .6em .6em;
 	animation: ants 12s linear infinite;
 	max-width: 20em;
 }

@@ -1,9 +1,9 @@
 .episode-page {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
   text-align: center;
-  color: black;
+  color: white;
   font-size: 0.9em;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .episode-breadcrumb-link:visited {
-  color: blue;
+  color: white;
 }
 
 .episode-title {
@@ -33,7 +33,7 @@
 
 .play-episode-link {
   text-decoration: underline;
-  color: blue;
+  color: white;
 }
 
 .play-episode-link:hover {

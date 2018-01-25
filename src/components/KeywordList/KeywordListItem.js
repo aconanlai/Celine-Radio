@@ -5,13 +5,13 @@ const KeywordListItem = ({
   language, keyword, selectKeyword, selectedKeyword,
 }) => (
   <li
-    className={`keyword-list-item${selectedKeyword === keyword.id ? ' selected' : ''}`}
+    className="keyword-list-item"
   >
     <a
       onClick={() => { selectKeyword(keyword.id); scrollToShowLinks(); }}
       onKeyPress={() => { selectKeyword(keyword.id); scrollToShowLinks(); }}
       role="link"
-      className="keyword-list-link"
+      className={`keyword-list-link${selectedKeyword === keyword.id ? ' selected' : ''}`}
       tabIndex={0}
     >
       <span

@@ -44,9 +44,6 @@ const EpisodeList = (props) => {
   const image = checkIfImageExists(props);
   return (
     <div className="show-container">
-      <h1 className="show-name">
-        {props.name}
-      </h1>
       {image &&
         <div
           className="show-image-container"
@@ -59,13 +56,16 @@ const EpisodeList = (props) => {
             alt={props.name}
           />
         </div>}
+      <h1 className="show-name">
+        {props.name}
+      </h1>
       <div
         className="show-description"
         dangerouslySetInnerHTML={{
           __html: props.language === 'en' ? props.description : (props.acf && props.acf.french_description) || props.description,
         }}
       />
-      Keywords:
+      Tags:
       {
         props.acf &&
         props.acf.related_keywords &&
