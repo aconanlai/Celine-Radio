@@ -22,7 +22,6 @@
 
 .nav-item:hover {
   cursor: pointer;
-  border-bottom: 2px solid yellow;
 }
 
 .nav-item.selected {
