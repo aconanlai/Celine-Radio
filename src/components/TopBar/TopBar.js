@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { scrollTo } from '../../utils/scrollerTo';
-import { hideLogo } from '../../redux/modules/ui';
+import { hideLogo, setMobileStatus } from '../../redux/modules/ui';
 import debounce from '../../utils/debounce';
 import './TopBar.css';
 
@@ -74,6 +74,12 @@ class TopBar extends Component {
     }, 100);
   }
 
+  componentDidMount() {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      this.props.setMobileStatus();
+    }
+  }
+
   componentDidUpdate(prevProps) {
     if (prevProps.isMobile !== this.props.isMobile && this.props.isMobile === true) {
       this.initializeListeners();
@@ -128,4 +134,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { hideLogo, })(TopBar);
+export default connect(mapStateToProps, { hideLogo, setMobileStatus, })(TopBar);

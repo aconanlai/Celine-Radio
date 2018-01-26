@@ -5,13 +5,10 @@ class MobileInitialScroller extends Component {
   componentDidMount() {
     const { url, } = this.props.match;
     const parts = url.split('/');
-    debugger;
     if (parts.length > 4) {
       return scrollTo('episode', 0);
-    } else if (parts[3] === 'episodes') {
-      return scrollTo('episode-list', 0);
     } else if (parts[1] === 'shows') {
-      return scrollTo('show-list', 0);
+      return scrollTo('episode-list', 0);
     }
   }
 
