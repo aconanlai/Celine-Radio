@@ -50,17 +50,15 @@
 
 .episode-list-item {
   text-align: center;
+  margin-bottom: 1.5em;
+  line-height: 1.25em;
 }
 
-.episode-list-item:hover {
+.episode-list-item > span:hover {
   color: white !important;
   border-bottom: 2px solid yellow;
 }
 
 .episode-list-link:visited {
   color: white;
-}
-
-.episode-list-item {
-  margin-bottom: 1.5em;
 }

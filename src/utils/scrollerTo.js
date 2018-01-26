@@ -13,11 +13,11 @@ const scrollToFactory = (className) => {
   };
 };
 
-export const scrollTo = (className) => {
+export const scrollTo = (className, time = 500) => {
   const element = document.querySelectorAll(`.${className}`)[0];
   // classToScrollTo.scrollIntoView();
   scrollIntoView(element, {
-    time: 500,
+    time,
     ease: (value) => {
       return 1 - Math.pow(1 - value, value / 5);
     },

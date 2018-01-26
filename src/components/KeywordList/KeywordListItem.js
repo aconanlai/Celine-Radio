@@ -12,7 +12,6 @@ const KeywordListItem = ({
       onKeyPress={() => { selectKeyword(keyword.id); scrollToShowLinks(); }}
       role="link"
       className={`keyword-list-link${selectedKeyword === keyword.id ? ' selected' : ''}`}
-      tabIndex={0}
     >
       <span
         dangerouslySetInnerHTML={{

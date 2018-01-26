@@ -11,10 +11,14 @@ const EpisodeListItem = ({ item, selectedShow, }) => (
   >
     <li
       className="episode-list-item"
-      dangerouslySetInnerHTML={{
-        __html: item.title.rendered,
-      }}
-    />
+    >
+      <span
+        className="episode-list-item"
+        dangerouslySetInnerHTML={{
+          __html: item.title.rendered,
+        }}
+      />
+    </li>
   </Link>
 );
 

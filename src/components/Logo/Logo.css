@@ -1,0 +1,12 @@
+.logo {
+  width: 150px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 2em;
+  transition: opacity 300ms ease-in-out;
+}
+
+.hidden {
+  opacity: 0;
+}

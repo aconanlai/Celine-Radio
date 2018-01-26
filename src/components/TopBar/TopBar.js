@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { scrollTo } from '../../utils/scrollerTo';
+import { hideLogo } from '../../redux/modules/ui';
 import debounce from '../../utils/debounce';
 import './TopBar.css';
 
@@ -25,6 +27,7 @@ class TopBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      timeMounted: new Date().getTime(),
       items: [{
         id: 'keywords',
         className: 'keyword-list',
@@ -63,17 +66,39 @@ class TopBar extends Component {
         items: itemsWithNewPositions,
         inScope,
       });
+      if (this.props.isMobile &&
+        !this.props.isLogoHidden &&
+        this.state.timeMounted < (new Date().getTime() - 5000)) {
+        this.props.hideLogo();
+      }
     }, 100);
   }
 
-  componentDidMount() {
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+  componentDidUpdate(prevProps) {
+    if (prevProps.isMobile !== this.props.isMobile && this.props.isMobile === true) {
       this.initializeListeners();
     }
   }
 
   initializeListeners() {
-    this.debouncedGetPositions();
+    const items = [...this.state.items];
+    let inScope;
+    const itemsWithNewPositions = items.map((item) => {
+      const element = document.getElementsByClassName(item.className)[0];
+      const { top, } = element.getBoundingClientRect();
+      const halfHeight = window.innerHeight / 2;
+      if (top < halfHeight) {
+        inScope = item.id;
+      }
+      return {
+        ...item,
+        position: top,
+      };
+    });
+    this.setState({
+      items: itemsWithNewPositions,
+      inScope,
+    });
     window.addEventListener('resize', this.debouncedGetPositions);
     document.addEventListener('scroll', this.debouncedGetPositions);
   }
@@ -96,4 +121,11 @@ class TopBar extends Component {
   }
 }
 
-export default TopBar;
+const mapStateToProps = (state) => {
+  return {
+    isMobile: state._ui.isMobile,
+    isLogoHidden: state._ui.isLogoHidden,
+  };
+};
+
+export default connect(mapStateToProps, { hideLogo, })(TopBar);
