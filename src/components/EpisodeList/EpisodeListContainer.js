@@ -8,7 +8,7 @@ import { getShowSlugFromPath } from '../../utils/pathSplitter';
 import EpisodeList from './EpisodeList';
 
 const NotOnPageYet = () => (
-  <div>no show selected yet</div>
+  <div>Please select a keyword/show to start exploring 😊</div>
 );
 
 class EpisodeListContainer extends Component {
@@ -21,22 +21,29 @@ class EpisodeListContainer extends Component {
   }
 
   componentDidMount() {
-    this.findAndLoadData();
+    this.findSlug();
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.match.url !== this.props.match.url) {
-      this.findAndLoadData();
+      this.findSlug();
+    }
+    if (prevProps.selectedShow !== this.props.selectedShow) {
+      this.loadData();
     }
   }
 
-  findAndLoadData() {
+  findSlug() {
     const show = getShowSlugFromPath(this.props.match.url);
     if (show && show !== this.props.selectedShow) {
       this.props.selectShow(show);
-      this.props.fetchEpisodes(show);
-      this.findShowData(show);
     }
+  }
+
+  loadData() {
+    const show = this.props.selectedShow;
+    this.props.fetchEpisodes(show);
+    this.findShowData(show);
   }
 
   findShowData(showSlug) {

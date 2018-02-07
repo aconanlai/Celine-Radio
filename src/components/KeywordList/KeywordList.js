@@ -5,6 +5,19 @@ import './KeywordList.css';
 const KeywordList = props => (
   <div className="list">
     <ul>
+      <KeywordListItem
+        key="all-shows"
+        keyword={{
+          id: -1,
+          name: 'all',
+          acf: {
+            french_title: 'tous',
+          },
+        }}
+        selectKeyword={props.selectKeyword}
+        selectedKeyword={props.selectedKeyword}
+        language={props.language}
+      />
       {props.keywordsArray.map((keyword) => {
         return (
           <KeywordListItem

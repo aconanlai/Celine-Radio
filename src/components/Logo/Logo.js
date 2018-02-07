@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './Logo.css';
-import logo from './logo.png';
+import logo from './logo.svg';
 
 const Logo = (props) => {
   return (

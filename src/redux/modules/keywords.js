@@ -3,7 +3,7 @@ import { apiPath } from '../../config';
 export default function reducer(state = {
   keywords: {},
   keywordsArray: [],
-  selectedKeyword: null,
+  selectedKeyword: -1,
 }, action = {}) {
   switch (action.type) {
     case 'RECEIVE_KEYWORDS':

@@ -6,7 +6,11 @@ const ShowList = (props) => {
   let keywordName;
   try {
     const foundKeyword = props.keywords[props.selectedKeyword];
-    keywordName = props.language === 'en' ? foundKeyword.name : foundKeyword.acf.french_title || foundKeyword.name;
+    if (props.selectedKeyword === -1) {
+      keywordName = props.language === 'en' ? 'all shows' : 'tous les shows';
+    } else if (foundKeyword) {
+      keywordName = props.language === 'en' ? foundKeyword.name : foundKeyword.acf.french_title || foundKeyword.name;
+    }
   } catch (e) {
     keywordName = null;
   }

@@ -24,9 +24,10 @@ const getSelectedKeyword = state => state._keywords.selectedKeyword;
 const getVisibleShows = createSelector(
   [getShowsArray, getSelectedKeyword],
   (showsArray, selectedKeyword) => {
-    return showsArray.filter((show) => {
-      return show.acf.related_keywords.includes(selectedKeyword);
-    });
+    return selectedKeyword === -1 ? showsArray :
+      showsArray.filter((show) => {
+        return show.acf.related_keywords.includes(selectedKeyword);
+      });
   }
 );
 

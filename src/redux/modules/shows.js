@@ -4,6 +4,7 @@ export default function reducer(state = {
   shows: {},
   showsArray: [],
   selectedShow: null,
+  selectedEpisode: null,
   isFetching: true,
 }, action = {}) {
   switch (action.type) {
@@ -23,6 +24,11 @@ export default function reducer(state = {
       return {
         ...state,
         selectedShow: action.show,
+      };
+    case 'SELECT_EPISODE':
+      return {
+        ...state,
+        selectedEpisode: action.episode,
       };
     default:
       return state;
@@ -66,5 +72,12 @@ export const selectShow = (show) => {
   return {
     type: 'SELECT_SHOW',
     show,
+  };
+};
+
+export const selectEpisode = (episode) => {
+  return {
+    type: 'SELECT_EPISODE',
+    episode,
   };
 };
