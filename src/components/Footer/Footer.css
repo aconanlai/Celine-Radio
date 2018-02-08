@@ -1,15 +1,9 @@
 .footer {
+  position: fixed;
+  bottom: 0px;
   display: flex;
   align-items: center;
   border-right: 2px solid #959596;
   width: 100%;
   height: 40px;
-  background-color: #f6989d;
-}
-
-@media screen and (max-width: 767px) {
-  .footer {
-    bottom: 0px;
-    position: fixed;
-  }
 }

@@ -1,0 +1,15 @@
+.about-button {
+  color: white;
+  padding: 2px 4px;
+}
+
+.about-button:hover {
+  cursor: pointer;
+  transform: translateY(-1px);
+  text-shadow: 1px 1px 1px rgba(50, 78, 78, 0.7);
+}
+
+.about-button:active {
+  transform: none;
+  text-shadow: none;
+}

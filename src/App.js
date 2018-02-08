@@ -8,6 +8,7 @@ import EpisodeContainer from './components/Episode/EpisodeContainer';
 import Logo from './components/Logo/Logo';
 import TopBar from './components/TopBar/TopBar';
 import Footer from './components/Footer/Footer';
+import AboutContainer from './components/About/AboutContainer';
 import MobileInitialScroller from './components/MobileInitialScroller/MobileInitialScroller';
 import './App.css';
 
@@ -41,6 +42,7 @@ const App = () => {
           </Switch>
         </Panel>
       </div>
+      <AboutContainer />
       <Footer />
     </div>
   );

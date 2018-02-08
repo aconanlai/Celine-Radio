@@ -1,0 +1,50 @@
+.about-modal {
+  background-color: #f6989d;
+  z-index: 999;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: calc(100vh - 40px);
+  width: calc(25vw - 40px);
+  border: 2px dotted yellow;
+  border-radius: 10px;
+  box-shadow: 5px 5px 1px rgba(50, 78, 78, 0.7);
+  margin: 20px;
+  padding: 2em;
+  color: white;
+  text-align: center;
+}
+
+.modal-close-button {
+  font-family: cursive;
+  color: white;
+  font-size: 1.5em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 5px 10px;
+}
+
+.modal-close-button:hover {
+  cursor: pointer;
+  transform: translateY(-1px);
+  text-shadow: 1px 1px 1px rgba(50, 78, 78, 0.7);
+}
+
+.modal-close-button:active {
+  transform: none;
+  text-shadow: none;
+}
+
+
+@media screen and (max-width: 1024px) {
+  .about-modal {
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    max-width: 800px;
+    height: 80vh;
+    margin: 0;
+  }
+}
